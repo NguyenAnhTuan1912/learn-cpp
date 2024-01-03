@@ -12,9 +12,9 @@ From Basic to Advance
 Như đã đề cập ở trên, thì quá trình này sẽ được chia thành __7 chủ đề__, các chủ đề đó là:
 
 1. __Datatype, Memory__. [Xem thêm](/datatype_memory)
-2. __Operators__, [Xem thêm](/datatype_memory)
-3. __Structuring Codebase__, [Xem thêm](/datatype_memory)
-4. __Functions__, [Xem thêm](/datatype_memory)
-5. __Pointer__, [Xem thêm](/datatype_memory)
-6. __Object Oriented Programming__, [Xem thêm](/datatype_memory)
-7. __Templates__, [Xem thêm](/datatype_memory)
+2. __Operators__, [Xem thêm](/operators)
+3. __Structuring Codebase__, [Xem thêm](/structuring_codebase)
+4. __Functions__, [Xem thêm](/function)
+5. __Pointer__, [Xem thêm](/pointer)
+6. __Object Oriented Programming__, [Xem thêm](/object_oriented_programming)
+7. __Templates__, [Xem thêm](/templates)

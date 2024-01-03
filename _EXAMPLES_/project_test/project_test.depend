@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1704247493 source:d:\hoctap\(7) cpp\project_test\src\classes\person\person.cpp
+	"Person.h"
+
+1704247524 d:\hoctap\(7) cpp\project_test\src\classes\person\person.h
+	<iostream>
+	<string>
+
+1704249010 source:d:\hoctap\(7) cpp\project_test\src\main.cpp
+	<iostream>
+	"classes/person/Person.h"
+	"utils/string/string_utils.cpp"
+
+1704249007 d:\hoctap\(7) cpp\project_test\src\utils\string\string_utils.cpp
+	<string>
+
+1704249007 source:d:\hoctap\(7) cpp\project_test\src\utils\string\string_utils.cpp
+	<string>
+

@@ -7,7 +7,6 @@
   Ấn build để nó hiện ra từng message của lỗi.
   Để thực thi và xem các ví dụ thì comment những chỗ code lỗi lại.
 */
-
 #include <iostream>
 
 using namespace std;

@@ -7,3 +7,7 @@ Trong chủ đề này thì tụi mình sẽ tìm hiểu về các kiểu dữ l
 ## Objectives
 - Hiểu và nhớ được các kiểu dữ liệu.
 - Quản lý bộ nhớ tốt hơn.
+
+## Documents
+- Nguyen Anh Tuan:
+  - Google Doc: https://docs.google.com/document/d/1FCU6BYo8DS7KuC80TKv0eb_kFkf6OTOnaKeh9X5XRHM/edit?usp=sharing

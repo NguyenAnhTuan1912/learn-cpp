@@ -39,6 +39,6 @@ int main() {
 
   // Output: "Type of s_num_01 > s_num_02: b"
   cout << "Type of s_num_01 > s_num_02: " << typeid(s_num_01 > s_num_02).name() << endl;
-
+  
   return 0;
 };

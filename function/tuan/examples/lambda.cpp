@@ -52,12 +52,12 @@ int main() {
   // Các lambda được khai báo ở đây
   //
   // Khai báo một lambda trong Main Scope
-  auto GetGreetingText = [](string name) -> string {
+  auto _GetGreetingText_L = [](string name) -> string {
     return "Hello, My name is " + name;
   };
 
   // Khai báo một lambda dùng Capture Clause
-  auto GetSum = [a, b]() -> int {
+  auto _GetSum_L = [a, b]() -> int {
     return a + b;
   };
   // Không thể dùng a và b khi trong Capture Clause không có a và b.
@@ -69,7 +69,7 @@ int main() {
   */
   // Lambda có thể có overload không?
   // Trả lời: không thể
-  auto GetMax = [](int a, int b) -> int {
+  auto _GetMax_L = [](int a, int b) -> int {
     return a > b ? a : b;
   };
   // Uncomment để thấy lỗi.
@@ -79,11 +79,11 @@ int main() {
   };
   */
   // Khai báo một lambda để lấy tên.
-  auto GetName = [last_name, first_name]() -> string {
+  auto _GetName_L = [last_name, first_name]() -> string {
     return last_name + " " + first_name;
   };
   // Khai báo một biến mới trong Capture Clause
-  auto GetMaxValueText = [G = ::GetMaxValue](int a, int b) -> string {
+  auto _GetMaxValueText_L = [G = ::GetMaxValue](int a, int b) -> string {
     return "Max value between of two is " + to_string(G(a, b));
   };
   // Khai báo 2 lambda một là mutable và immutable
@@ -95,12 +95,12 @@ int main() {
   };
   */
   // Mutable-captures lambda
-  auto TryModifyingMutableCaptures = [mutable_str_01]() mutable {
+  auto _TryModifyingMutableCaptures_L = [mutable_str_01]() mutable {
     mutable_str_01 += " This value can mutate in lambda body!!!";
     cout << mutable_str_01 << endl;
   };
   // Khai báo 2 lambda là GetPerson và GetPersonInvalidly
-  auto GetPerson = [](string name = "Nguyen Anh Tuan", int age = 21) -> Person {
+  auto _GetPerson_L = [](string name = "Nguyen Anh Tuan", int age = 21) -> Person {
     return { name, age };
   };
   // Lỗi
@@ -111,7 +111,7 @@ int main() {
   };
   */
   // Khai báo một lambda để access vào static
-  auto AccessToStatic = []() {
+  auto _AccessToStatic_L = []() {
     cout << "Static: " << dont_need_to_capture_text << endl;
   };
   //
@@ -120,34 +120,34 @@ int main() {
 
   cout << "Use lambda and get typeof lambda\n";
   // Gọi lambda GetGreetingText
-  cout << "Greeting text: " << GetGreetingText("Nguyen Anh Tuan") << endl;
+  cout << "Greeting text: " << _GetGreetingText_L("Nguyen Anh Tuan") << endl;
   // Output: "Max between a and b: 90"
-  cout << "Max between a and b: " << GetMax(a, b) << endl;
+  cout << "Max between a and b: " << _GetMax_L(a, b) << endl;
   // Kiển tra type của lambda GetGreetingText
-  cout << "Type of GetGreetingText: " << typeid(GetGreetingText).name() << endl;
+  cout << "Type of GetGreetingText: " << typeid(_GetGreetingText_L).name() << endl;
 
   cout << "\n";
 
   cout << "Capture a and b\n";
   // Output: "Sum of a and b: 100"
-  cout << "Sum of a and b: " << GetSum() << endl;
+  cout << "Sum of a and b: " << _GetSum_L() << endl;
 
   cout << "\n";
 
   cout << "Pass lambda to a function\n";
   // Output: "Greeting text: 90"
-  cout << "Greeting text: " << ::GetGreetingText(GetName) << endl;
+  cout << "Greeting text: " << ::GetGreetingText(_GetName_L) << endl;
 
   cout << "\n";
 
   cout << "Declare variable in Capture Clause\n";
   // Output: "Max value between of two is: -3"
-  cout << GetMaxValueText(-23, -3);
+  cout << _GetMaxValueText_L(-23, -3);
 
   cout << "\n\n";
 
   cout << "Multable and Immutable Captures\n";
-  TryModifyingMutableCaptures();
+  _TryModifyingMutableCaptures_L();
 
   cout << "\n";
 
@@ -162,7 +162,7 @@ int main() {
   cout << "\n\n";
 
   cout << "Return a struct from lambda with {} (initializer list)\n";
-  auto p = GetPerson();
+  auto p = _GetPerson_L();
   cout << "Name of p: " << p.name_ << endl;
   cout << "Age of p: " << p.age_ << endl;
 
@@ -183,7 +183,7 @@ int main() {
   cout << "\n";
 
   cout << "Lambda can access a static which don't need to be captured\n";
-  AccessToStatic();
+  _AccessToStatic_L();
 
   return 0;
 };

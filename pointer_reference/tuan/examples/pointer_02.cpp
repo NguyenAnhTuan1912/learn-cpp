@@ -10,6 +10,35 @@
 
 using namespace std;
 
+struct Person {
+  string name_;
+  int age_;
+
+  // Mình sẽ tạo ra 2 phiên bản của operator=
+  // Uncomment một hàm và comment một hàm để thấy được kết quả khác biệt.
+
+  // Nên truyền vào tham chiếu
+  /*
+  Person operator=(Person &p) {
+    this->name_ = p.name_;
+    this->age_ = p.age_;
+
+    return p;
+  };
+  */
+
+  Person& operator=(Person &p) {
+    this->name_ = p.name_;
+    this->age_ = p.age_;
+
+    return p;
+  };
+
+  bool operator==(Person &p) {
+    return this == &p;
+  };
+};
+
 int Sum(int a, int b) {
   return a + b;
 };
@@ -40,6 +69,14 @@ int* GetPointerWithVal(int a) {
 
 int* GetPointerWithRef(int &a) {
   return &a;
+};
+
+Person CreatePerson() {
+  Person p = { "Admin", 21 };
+
+  cout << "(CreatePerson) Value of &p: " << &p << endl;
+
+  return p;
 };
 
 int main() {
@@ -104,6 +141,40 @@ int main() {
   *ptr_q_02 /= 10;
 
   cout << "Value of q: " << q << endl;
+
+  cout << "\n";
+
+  cout << "Comparision between 2 people\n";
+
+  Person pn = CreatePerson();
+  cout << "Value of &pn: " << &pn << endl;
+
+  Person pn_02 = CreatePerson();
+  cout << "Value of &pn_02: " << &pn_02 << endl;
+
+  cout << "\n";
+
+  // Sửa lại thông tin của pn.
+  pn.name_ = "Nguyen Anh Tuan";
+  pn.age_ = 100;
+
+  cout << "Name of pn: " << pn.name_ << endl;
+  cout << "Age of pn: " << pn.age_ << endl;
+
+  cout << "\n";
+
+  Person pn_03;
+  pn_03 = pn;
+
+  cout << "Name of pn: " << pn.name_ << endl;
+  cout << "Age of pn: " << pn.age_ << endl;
+  cout << "Name of pn_03: " << pn_03.name_ << endl;
+  cout << "Age of pn_03: " << pn_03.age_ << endl;
+
+  cout << "\n";
+
+  cout << "Compare pn and pn_03\n";
+  cout << "Is pn == pn_03? " << ((pn == pn_03) ? "Yes" : "No") << endl;
 
   cout << "\n";
 

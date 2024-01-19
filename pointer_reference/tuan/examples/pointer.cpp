@@ -17,9 +17,9 @@ int main() {
   char c = 'c';
 
   // Khai báo các con trỏ
-  int *ptr_a = &a;
-  float *ptr_b = &b;
-  char *ptr_c = &c;
+  int* ptr_a = &a;
+  float* ptr_b = &b;
+  char* ptr_c = &c;
 
   // In các con trỏ
   cout << "Print pointer\n";
@@ -68,8 +68,8 @@ int main() {
   cout << "Pointer and Pointer point to pointer\n";
   int m = 100;
 
-  int *ptr_m = &m;
-  int **ptr2_m = &ptr_m;
+  int* ptr_m = &m;
+  int** ptr2_m = &ptr_m;
 
   // Value của ptr_ptr_m
   cout << "Value of ptr2_m: " << ptr2_m << endl;

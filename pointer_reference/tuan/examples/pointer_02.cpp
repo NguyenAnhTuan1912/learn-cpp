@@ -27,14 +27,14 @@ struct Person {
   };
   */
 
-  Person& operator=(Person &p) {
+  Person& operator=(Person& p) {
     this->name_ = p.name_;
     this->age_ = p.age_;
 
     return p;
   };
 
-  bool operator==(Person &p) {
+  bool operator==(Person& p) {
     return this == &p;
   };
 };
@@ -43,7 +43,7 @@ int Sum(int a, int b) {
   return a + b;
 };
 
-void Swap(int &a, int &b) {
+void Swap(int& a, int& b) {
   int temp = a;
   a = b;
   b = temp;
@@ -53,7 +53,7 @@ void PrintValAddress(int a) {
   cout<< "Val's address: " << &a << endl;
 };
 
-void PrintRefAddress(int &a) {
+void PrintRefAddress(int& a) {
   cout<< "Ref's address: " << &a << endl;
 };
 
@@ -67,7 +67,7 @@ int* GetPointerWithVal(int a) {
   return &a;
 };
 
-int* GetPointerWithRef(int &a) {
+int* GetPointerWithRef(int& a) {
   return &a;
 };
 
@@ -86,9 +86,8 @@ int main() {
     b = 25;
 
   // Khai báo các con trỏ
-  int
-    *ptr_a = &a,
-    *ptr_b = &b;
+  int* ptr_a = &a;
+  int* ptr_b = &b;
 
   cout << "Sum of a & b (*ptr_a & *ptr_b): " << Sum(*ptr_a, *ptr_b) << endl;
 
@@ -122,9 +121,8 @@ int main() {
 
   int q = 100;
 
-  int
-    *ptr_q_01 = GetPointerWithVal(q),
-    *ptr_q_02 = GetPointerWithRef(q);
+  int* ptr_q_01 = GetPointerWithVal(q);
+  int* ptr_q_02 = GetPointerWithRef(q);
 
   cout << "Value of &q: " << &q << endl;
   cout << "Value of ptr_q_01: " << ptr_q_01 << endl; // != &q

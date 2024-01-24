@@ -7,6 +7,7 @@
 */
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -55,6 +56,24 @@ public:
       << " Height: " << height_ << ","
       << " Weight: " << weight_ << ")\n";
   };
+};
+
+class Menu {
+public:
+  Menu(initializer_list<string> food): foods_(food), number_of_foods(food.size()) {};
+
+  void Print() {
+    cout << "Nunmber of foods: " << this->number_of_foods << endl;
+    cout << "Menu: \n";
+    int N = this->foods_.size();
+    for(int i = 0; i < N; i++) {
+      cout << this->foods_[i] << endl;
+    };
+  };
+
+private:
+  std::vector<string> foods_;
+  int number_of_foods;
 };
 
 int main() {
@@ -109,6 +128,11 @@ int main() {
   p_07.Print();
 
   cout << "\n";
+
+  cout << "Create instance with initializer list as parameter.\n";
+  Menu m{ "Fried Chicken", "Potato", "Soup", "Pho", "Hu tieu" };
+
+  m.Print();
 
   return 0;
 };

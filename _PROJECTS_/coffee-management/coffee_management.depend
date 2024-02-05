@@ -1,8 +1,11 @@
 # depslib dependency file v1.0
-1707130281 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
+1707143905 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
 	<iostream>
+	<conio.h>
+	"macros/keys.h"
 	"objects/app/App.h"
 	"objects/screen/Screen.h"
+	"types/keys.types.h"
 
 1707129769 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.h
 	<iostream>
@@ -12,22 +15,27 @@
 	<algorithm>
 	"string_utils.h"
 
-1707128461 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\string_utils\string_utils.h
+1707143444 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\string_utils\string_utils.h
 	<iostream>
 
-1707130089 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.cpp
+1707143846 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.cpp
 	<stdlib.h>
 	<iostream>
 	"Screen.h"
 	"../../utils/string_utils/string_utils.h"
 
-1707130136 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\app\app.h
+1707143706 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\app\app.h
 	<iostream>
 	<vector>
 	"../screen/Screen.h"
+	"../../types/keys.types.h"
 
-1707130193 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\app\app.cpp
+1707144196 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\app\app.cpp
 	<iostream>
+	"../../macros/keys.h"
 	"App.h"
-	"../screen/Screen.h"
+
+1707142459 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\macros\keys.h
+
+1707143351 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\types\keys.types.h
 

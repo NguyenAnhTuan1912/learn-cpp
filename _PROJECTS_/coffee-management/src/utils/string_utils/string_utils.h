@@ -7,7 +7,7 @@ namespace CoffeeShop {
 namespace Utils {
 namespace String {
 
-/** Convert a normal-case to upper-case of a string.
+/** \brief Convert a normal-case to upper-case of a string.
  *
  * \param s The original string.
  * \return a upper-case string.

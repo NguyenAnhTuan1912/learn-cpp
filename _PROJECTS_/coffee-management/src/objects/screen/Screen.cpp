@@ -27,12 +27,10 @@ void Screen::Print() {
   system("cls");
 
   std::cout << "In screen - " << Utils::String::ToUpperCase(this->_name_) << std::endl;
-  std::cout << "===================\n";
+  std::cout << "=====\n";
 
   // Content
-
-  std::cout << "===================\n";
-  std::cout << "Navigate to: " << std::endl;
+  std::cout << "=====\n";
 };
 
 Screen& Screen::NavigateTo(std::string screen_id) {

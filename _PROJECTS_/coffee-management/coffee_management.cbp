@@ -32,7 +32,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="src/macros/keys.h" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/objects/app/App.cpp" />
+		<Unit filename="src/objects/app/App.h" />
+		<Unit filename="src/objects/screen/Screen.cpp" />
+		<Unit filename="src/objects/screen/Screen.h" />
+		<Unit filename="src/types/keys.types.h" />
+		<Unit filename="src/utils/string_utils/string_utils.cpp" />
+		<Unit filename="src/utils/string_utils/string_utils.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

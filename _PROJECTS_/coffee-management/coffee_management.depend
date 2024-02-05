@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1707130281 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
+	<iostream>
+	"objects/app/App.h"
+	"objects/screen/Screen.h"
+
+1707129769 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.h
+	<iostream>
+	<map>
+
+1707128480 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\string_utils\string_utils.cpp
+	<algorithm>
+	"string_utils.h"
+
+1707128461 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\string_utils\string_utils.h
+	<iostream>
+
+1707130089 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.cpp
+	<stdlib.h>
+	<iostream>
+	"Screen.h"
+	"../../utils/string_utils/string_utils.h"
+
+1707130136 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\app\app.h
+	<iostream>
+	<vector>
+	"../screen/Screen.h"
+
+1707130193 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\app\app.cpp
+	<iostream>
+	"App.h"
+	"../screen/Screen.h"
+

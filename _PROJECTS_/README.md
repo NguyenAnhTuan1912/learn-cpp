@@ -1,0 +1,2 @@
+# Projects
+Khi học xong thì cần phải làm một bài tập lớn giống kết thúc môn để đánh giá được những gì mình đã học trong quá trình của môn đó. Project không giới hạn là những gì, có thể là console app, gui app hoặc là api; miễn sao được viết bằng C++ là được.

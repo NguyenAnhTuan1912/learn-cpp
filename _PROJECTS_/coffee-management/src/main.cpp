@@ -20,6 +20,10 @@ int main()
 
   // Init screens
   Screen home("screen_01", "Home");
+  Screen employee("screen_02", "Employee");
+
+  home.AddLinkedScreen(&employee);
+  employee.AddLinkedScreen(&home);
 
   // Init app
   App app(&home);
@@ -29,7 +33,16 @@ int main()
 
   while(key != KEY_ESC) {
     app.Render(key);
-    key = getch();
+    // cout << "Address of home: " << (&home) << endl;
+
+    // If there is any action is performed, skip this statement.
+    if(!app.GetIsPerformedSelectionStatus())
+      key = getch();
+    else {
+      // Reset
+      app.SetIsPerformedSelectionStatus(false);
+      key = 0;
+    };
   };
 
   return 0;

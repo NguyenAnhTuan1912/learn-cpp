@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1707143905 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
+1707210996 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
 	<iostream>
 	<conio.h>
 	"macros/keys.h"
@@ -7,9 +7,12 @@
 	"objects/screen/Screen.h"
 	"types/keys.types.h"
 
-1707129769 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.h
+1707207808 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.h
 	<iostream>
-	<map>
+	<vector>
+	"../../utils/string_utils/string_utils.h"
+	"../../types/screen.types.h"
+	"../../types/keys.types.h"
 
 1707128480 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\string_utils\string_utils.cpp
 	<algorithm>
@@ -18,19 +21,21 @@
 1707143444 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\string_utils\string_utils.h
 	<iostream>
 
-1707143846 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.cpp
-	<stdlib.h>
+1707210684 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.cpp
 	<iostream>
+	<stdlib.h>
+	<conio.h>
 	"Screen.h"
-	"../../utils/string_utils/string_utils.h"
+	"../../macros/keys.h"
+	"../../types/screen.types.h"
 
-1707143706 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\app\app.h
+1707211154 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\app\app.h
 	<iostream>
 	<vector>
 	"../screen/Screen.h"
 	"../../types/keys.types.h"
 
-1707144196 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\app\app.cpp
+1707210585 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\app\app.cpp
 	<iostream>
 	"../../macros/keys.h"
 	"App.h"
@@ -38,4 +43,9 @@
 1707142459 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\macros\keys.h
 
 1707143351 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\types\keys.types.h
+
+1707207938 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\types\screen.types.h
+	<iostream>
+	<map>
+	"../objects/screen/Screen.h"
 

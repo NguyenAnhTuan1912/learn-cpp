@@ -1,9 +1,14 @@
-#include <stdlib.h>
 #include <iostream>
+#include <stdlib.h>
+#include <conio.h>
 
 #include "Screen.h"
 
-#include "../../utils/string_utils/string_utils.h"
+// Add macros
+#include "../../macros/keys.h"
+
+// Add types
+#include "../../types/screen.types.h"
 
 /*
   Define a class that creates an instance to manage screen.
@@ -18,25 +23,37 @@ Screen::Screen(
   this->_name_ = name;
 };
 
-void Screen::AddLinkedScreen(Screen* screen) {
-  this->_linked_screens_[screen->GetId()] = screen;
+std::string Screen::GetNavigableScreenId() {
+  // List linked screens
+  // Get iterator
+  Types::LinkedScreenMap::iterator itr = this->_linked_screens_.begin();
+  Types::LimitedKeyCode key = 0;
+  std::vector<std::string> map_keys;
+  int index = 1, select = 0, s = 0;
+
+  // Loop
+  std::cout << "Navigate to: \n";
+  while(itr != this->_linked_screens_.end()) {
+    std::cout << index << ". " << itr->second->GetName() << std::endl;
+    map_keys.push_back(itr->first);
+    index++;
+    itr++;
+  };
+
+  std::cout << "c. Cancel\n";
+
+  // Get selection
+  key = getch();
+  // Convert to int
+  select = key - '0' - 1;
+  s = map_keys.size();
+
+  if(key != KEY_c && select >= 0 && select < s) return map_keys.at(select);
+
+  return "";
 };
 
-void Screen::Print() {
-  // Clear screen
-  system("cls");
-
-  std::cout << "In screen - " << Utils::String::ToUpperCase(this->_name_) << std::endl;
-  std::cout << "=====\n";
-
-  // Content
-  std::cout << "=====\n";
-};
-
-Screen& Screen::NavigateTo(std::string screen_id) {
-  Screen* s = this->_linked_screens_[screen_id];
-  s->Print();
-  return *s;
-};
+void Screen::Render() { std::cout << "Default content of " << this->_name_ << " screen." << std::endl; };
+bool Screen::SelectFeature(Types::LimitedKeyCode key) { std::cout << "Feature." << std::endl; return false; };
 
 };

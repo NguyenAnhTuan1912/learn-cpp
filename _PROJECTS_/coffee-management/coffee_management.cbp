@@ -39,6 +39,7 @@
 		<Unit filename="src/objects/screen/Screen.cpp" />
 		<Unit filename="src/objects/screen/Screen.h" />
 		<Unit filename="src/types/keys.types.h" />
+		<Unit filename="src/types/screen.types.h" />
 		<Unit filename="src/utils/string_utils/string_utils.cpp" />
 		<Unit filename="src/utils/string_utils/string_utils.h" />
 		<Extensions>

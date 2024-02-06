@@ -2,7 +2,14 @@
 #define SCREEN_H_INCLUDED
 
 #include <iostream>
-#include <map>
+#include <vector>
+
+// Add utils
+#include "../../utils/string_utils/string_utils.h"
+
+// Add types
+#include "../../types/screen.types.h"
+#include "../../types/keys.types.h"
 
 namespace CoffeeShop {
 
@@ -13,7 +20,7 @@ class Screen {
 private:
   std::string _id_;
   std::string _name_;
-  std::map<std::string, Screen*> _linked_screens_;
+  Types::LinkedScreenMap _linked_screens_;
 
 public:
   Screen() = default;
@@ -23,19 +30,40 @@ public:
   );
 
   // Getters
+
+  /** \brief Use to get id of screen
+   *
+   * \return An string of screen id
+   *
+   */
   virtual std::string GetId() final { return this->_id_; };
+
+  /** \brief Use to get name of screen
+   *
+   * \return A string of screen name
+   *
+   */
   virtual std::string GetName() final { return this->_name_; };
+
+  /** \brief Use to get a pointer of linked screen
+   *
+   * \param screen_id An id of a screen
+   * \return A pointer of screen
+   *
+   */
+  virtual Screen& GetLinkedScreen(std::string screen_id) final {
+    return *(this->_linked_screens_[screen_id]);
+  };
 
   // Other methods
   /** \brief Use to add a linked screen
    *
    * \param screen A pointer of navigable screen
    * \return void
-   *
-   * When this method is execute, it require 1 arg is a pointer of navigable screen
-   * then screen instance will add this pointer to list.
    */
-  void AddLinkedScreen(Screen* screen);
+  virtual void AddLinkedScreen(Screen* screen) final {
+    this->_linked_screens_[screen->GetId()] = screen;
+  };
 
   /** \brief Use to print the content of screen
    *
@@ -44,18 +72,45 @@ public:
    * When this method is executed, the content of this screen will be printed
    * on console.
    */
-  void Print();
+  virtual void Print() final {
+    // Clear screen
+    system("cls");
 
-  /** \brief Use to print another screen
+    std::cout << "In screen - " << Utils::String::ToUpperCase(this->_name_) << std::endl;
+    std::cout << "=====\n";
+    // Content
+    this->Render();
+    std::cout << "=====\n";
+  };
+
+  /** \brief Use to render the content of screen
    *
-   * \param screen_id An id of a screen
-   * \return A reference of screen
+   * \return
    *
-   * When this method is executed, new content of new screen will be printed.
-   * USE WITH APP INSTANCE.
+   * When this method is executed, particular instructions will print
+   * content to the console. This method need to be defined specifically.
    */
+  void Render();
 
-  Screen& NavigateTo(std::string screen_id);
+  /** \brief Use to get id of navigable screen
+   *
+   * \param key A key is selected from keyboard.
+   * \return
+   *
+   * When this method is executed, the screen will list the linked
+   * screen and return a string depend on user's choice.
+   */
+  std::string GetNavigableScreenId();
+
+  /** \brief Use to render the particular selections of screen
+   *
+   * \param key A key is selected from keyboard.
+   * \return
+   *
+   * When this method is executed, particular instructions will print
+   * features to the console. This method need to be defined specifically.
+   */
+  bool SelectFeature(Types::LimitedKeyCode key);
 };
 
 };

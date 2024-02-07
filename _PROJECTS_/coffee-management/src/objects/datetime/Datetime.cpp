@@ -14,19 +14,46 @@
 
 namespace CoffeeShop {
 
+// Define static properties
 std::regex Datetime::DATE_FORMAT_FULL_REGEX(DATE_FORMAT_FULL_PATTERN);
 std::regex Datetime::DATE_FORMAT_NORMAL_REGEX(DATE_FORMAT_NORMAL_PATTERN);
 std::regex Datetime::DATE_FORMAT_ONLY_DATE_REGEX(DATE_FORMAT_ONLY_DATE_PATTERN);
 std::regex Datetime::DATE_FORMAT_ONLY_TIME_REGEX(DATE_FORMAT_ONLY_TIME_PATTERN);
 
+// Defined static methods
+bool Datetime::CheckDatetimeStrFullFormat(std::string datetime) {
+  return std::regex_match(datetime, Datetime::DATE_FORMAT_FULL_REGEX);
+};
+
+bool Datetime::CheckDatetimeStrNormalFormat(std::string datetime) {
+  return std::regex_match(datetime, Datetime::DATE_FORMAT_NORMAL_REGEX);
+};
+
+bool Datetime::CheckDatetimeStrOnlyDateFormat(std::string datetime) {
+  return std::regex_match(datetime, Datetime::DATE_FORMAT_ONLY_DATE_REGEX);
+};
+
+bool Datetime::CheckDatetimeStrOnlyTimeFormat(std::string datetime) {
+  return std::regex_match(datetime, Datetime::DATE_FORMAT_ONLY_TIME_REGEX);
+};
+
+bool Datetime::CheckDatetimeStr(std::string datetime) {
+  if(Datetime::CheckDatetimeStrFullFormat(datetime)) return true;
+  if(Datetime::CheckDatetimeStrNormalFormat(datetime)) return true;
+  if(Datetime::CheckDatetimeStrOnlyDateFormat(datetime)) return true;
+  if(Datetime::CheckDatetimeStrOnlyTimeFormat(datetime)) return true;
+
+  return false;
+};
+
+// Define primary members
 Datetime::Datetime(std::string datetime) {
   try {
     std::smatch m;
-    std::tm tm{};
+    std::tm tm_time = *std::localtime(&this->_date_);
 
-    if(std::regex_match(datetime, Datetime::DATE_FORMAT_NORMAL_REGEX)) {
+    if(std::regex_match(datetime, m, Datetime::DATE_FORMAT_NORMAL_REGEX)) {
       int day, month, year, hour, minute, second;
-      std::regex_match(datetime, m, Datetime::DATE_FORMAT_NORMAL_REGEX);
       std::string date = m[1], time = m[2];
 
       std::replace(date.begin(), date.end(), '/', ' ');
@@ -35,35 +62,36 @@ Datetime::Datetime(std::string datetime) {
       std::istringstream(date) >> day >> month >> year;
       std::istringstream(time) >> hour >> minute >> second;
 
-      std::cout << "Date: " << m[1] << std::endl;
-      std::cout << "Time: " << m[2] << std::endl;
-
-      tm.tm_mday = day;
-      tm.tm_mon = month - 1;
-      tm.tm_year = year - 1900;
-      tm.tm_hour = hour;
-      tm.tm_min = minute;
-      tm.tm_sec = second;
-    }
-    else if(std::regex_match(datetime, Datetime::DATE_FORMAT_ONLY_DATE_REGEX)) {
+      tm_time.tm_mday = day;
+      tm_time.tm_mon = month - 1;
+      tm_time.tm_year = year - 1900;
+      tm_time.tm_hour = hour;
+      tm_time.tm_min = minute;
+      tm_time.tm_sec = second;
+    } else if(std::regex_match(datetime, m, Datetime::DATE_FORMAT_ONLY_DATE_REGEX)) {
       int day, month, year;
-      std::regex_match(datetime, m, Datetime::DATE_FORMAT_ONLY_DATE_REGEX);
       std::string date = m[1];
       std::replace(date.begin(), date.end(), '/', ' ');
 
       std::istringstream(date) >> day >> month >> year;
 
-      std::cout << "Date: " << m[1] << std::endl;
-      std::cout << "Day: " << day << std::endl;
-      std::cout << "Month: " << month << std::endl;
-      std::cout << "Year: " << year << std::endl;
+      tm_time.tm_mday = day;
+      tm_time.tm_mon = month - 1;
+      tm_time.tm_year = year - 1900;
+    } else if(std::regex_match(datetime, m, Datetime::DATE_FORMAT_ONLY_TIME_REGEX)) {
+      int hour, minute, second;
+      std::string time = m[1];
 
-      tm.tm_mday = day;
-      tm.tm_mon = month - 1;
-      tm.tm_year = year - 1900;
-    }
+      std::replace(time.begin(), time.end(), ':', ' ');
 
-    this->_date_ = std::mktime(&tm);
+      std::istringstream(time) >> hour >> minute >> second;
+
+      tm_time.tm_hour = hour;
+      tm_time.tm_min = minute;
+      tm_time.tm_sec = second;
+    } else throw std::runtime_error("This format of datetime isn't supported!!!");
+
+    this->_date_ = std::mktime(&tm_time);
   } catch(const std::exception& e) {
     std::cerr << e.what();
   }

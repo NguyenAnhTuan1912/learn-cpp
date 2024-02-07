@@ -17,6 +17,15 @@ enum Core {
 };
 };
 
+namespace DrinkTypesEnum {
+enum Core {
+  Soda,
+  Yaourt,
+  Coffee,
+  Juice
+};
+};
+
 namespace SnackTypesEnum {
 enum Core {
   Sweety,

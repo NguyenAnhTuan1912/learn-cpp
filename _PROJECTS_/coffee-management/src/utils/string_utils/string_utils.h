@@ -18,6 +18,15 @@ namespace String {
  */
 std::string ToUpperCase(std::string s);
 
+/** \brief Use to generate a random sequence of characters.
+ *
+ * \param prefix A string is added to first.
+ * \param length A length of sequence.
+ * \return
+ *
+ */
+std::string GenerateRandom(std::string prefix, int length = 12);
+
 /** \brief Use to split a string.
  *
  * \param str A string that be wanted to split.

@@ -16,10 +16,8 @@
 namespace CoffeeShop {
 
 Screen::Screen(
-  std::string id,
   std::string name
 ) {
-  this->_id_ = id;
   this->_name_ = name;
 };
 
@@ -53,7 +51,7 @@ std::string Screen::GetNavigableScreenId() {
   return "";
 };
 
-void Screen::Render() { std::cout << "Default content of " << this->_name_ << " screen." << std::endl; };
+void Screen::Render() { std::cout << "Default content of " << this->_name_ << " screen. Id: " << this->_id_ << std::endl; };
 bool Screen::SelectFeature(Types::LimitedKeyCode key) { std::cout << "Feature." << std::endl; return false; };
 
 };

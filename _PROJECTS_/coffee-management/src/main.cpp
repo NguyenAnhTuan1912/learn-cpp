@@ -1,5 +1,7 @@
 #include <iostream>
 #include <conio.h>
+#include <ctime>
+#include <cstdlib>
 
 // Add macros
 #include "macros/keys.h"
@@ -17,11 +19,13 @@ using namespace CoffeeShop;
 
 int main()
 {
+  srand(time(nullptr));
+
   Types::LimitedKeyCode key = 0;
 
   // Init screens
-  Screen home("screen_01", "Home");
-  Screen employee("screen_02", "Employee");
+  Screen home("Home");
+  Screen employee("Employee");
 
   home.AddLinkedScreen(&employee);
   employee.AddLinkedScreen(&home);

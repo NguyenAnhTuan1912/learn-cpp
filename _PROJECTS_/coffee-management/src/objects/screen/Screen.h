@@ -18,14 +18,13 @@ namespace CoffeeShop {
 */
 class Screen {
 private:
-  std::string _id_;
+  std::string _id_ = Utils::String::GenerateRandom("screen");
   std::string _name_;
   Types::LinkedScreenMap _linked_screens_;
 
 public:
   Screen() = default;
   Screen(
-    std::string id,
     std::string name
   );
 

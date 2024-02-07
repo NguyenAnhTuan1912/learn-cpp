@@ -1,6 +1,8 @@
 #include <algorithm>
 
+// Add utils
 #include "string_utils.h"
+#include "../number_utils/number_utils.h"
 
 namespace CoffeeShop {
 namespace Utils {
@@ -9,6 +11,20 @@ namespace String {
 std::string ToUpperCase(std::string s) {
   std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) { return std::toupper(c); });
   return s;
+};
+
+std::string GenerateRandom(std::string prefix, int length) {
+  std::string alphabet = "abcdefghijklmnopqrstuvw0123456789xyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  std::string result = "";
+  int N = alphabet.length();
+
+  for(int i = 0; i < length; i++) {
+    result += alphabet[Utils::Number::GetRandom(N)];
+  };
+
+  if(prefix != "" || prefix.length() == 0) result = prefix + "_" + result;
+
+  return result;
 };
 
 std::vector<std::string> Split(std::string str, std::string seperator) {

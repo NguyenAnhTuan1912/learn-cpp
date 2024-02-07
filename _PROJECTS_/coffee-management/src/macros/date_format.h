@@ -9,6 +9,6 @@
 #define DATE_FORMAT_FULL_PATTERN "(\\w+), (\\d{2}\\/\\d{2}\\/\\d{4}) (\\d{2}:\\d{2}:\\d{2})"
 #define DATE_FORMAT_NORMAL_PATTERN "(\\d{2}\\/\\d{2}\\/\\d{4}) (\\d{2}:\\d{2}:\\d{2})"
 #define DATE_FORMAT_ONLY_DATE_PATTERN "(\\d{2}\\/\\d{2}\\/\\d{4})"
-#define DATE_FORMAT_ONLY_TIME_PATTERN "(\\d{2}:\\d{2}:\\d{2})}"
+#define DATE_FORMAT_ONLY_TIME_PATTERN "(\\d{2}:\\d{2}:\\d{2})"
 
 #endif // DATE_FORMAT_H_INCLUDED

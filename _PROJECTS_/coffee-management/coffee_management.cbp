@@ -34,6 +34,7 @@
 		</Compiler>
 		<Unit filename="src/enums/enums.h" />
 		<Unit filename="src/macros/date_format.h" />
+		<Unit filename="src/macros/employee.h" />
 		<Unit filename="src/macros/keys.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/objects/app/App.cpp" />
@@ -47,6 +48,10 @@
 		<Unit filename="src/objects/screen/Screen.h" />
 		<Unit filename="src/types/keys.types.h" />
 		<Unit filename="src/types/screen.types.h" />
+		<Unit filename="src/utils/enum_utils/enum_utils.cpp" />
+		<Unit filename="src/utils/enum_utils/enum_utils.h" />
+		<Unit filename="src/utils/number_utils/number_utils.cpp" />
+		<Unit filename="src/utils/number_utils/number_utils.h" />
 		<Unit filename="src/utils/string_utils/string_utils.cpp" />
 		<Unit filename="src/utils/string_utils/string_utils.h" />
 		<Extensions>

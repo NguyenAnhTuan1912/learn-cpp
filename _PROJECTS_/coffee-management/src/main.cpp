@@ -7,6 +7,7 @@
 // Add objects
 #include "objects/app/App.h"
 #include "objects/screen/Screen.h"
+#include "objects/datetime/Datetime.h"
 
 // Add types
 #include "types/keys.types.h"

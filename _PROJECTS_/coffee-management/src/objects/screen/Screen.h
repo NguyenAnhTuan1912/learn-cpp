@@ -89,7 +89,7 @@ public:
    * When this method is executed, particular instructions will print
    * content to the console. This method need to be defined specifically.
    */
-  void Render();
+  virtual void Render();
 
   /** \brief Use to get id of navigable screen
    *
@@ -109,7 +109,7 @@ public:
    * When this method is executed, particular instructions will print
    * features to the console. This method need to be defined specifically.
    */
-  bool SelectFeature(Types::LimitedKeyCode key);
+  virtual bool SelectFeature(Types::LimitedKeyCode key);
 };
 
 };

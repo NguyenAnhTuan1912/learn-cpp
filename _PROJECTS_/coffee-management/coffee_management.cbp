@@ -39,6 +39,7 @@
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/objects/app/App.cpp" />
 		<Unit filename="src/objects/app/App.h" />
+		<Unit filename="src/objects/data_list/DataList.h" />
 		<Unit filename="src/objects/datetime/Datetime.cpp" />
 		<Unit filename="src/objects/datetime/Datetime.h" />
 		<Unit filename="src/objects/employee/Employee.h" />
@@ -46,8 +47,13 @@
 		<Unit filename="src/objects/product/product.h" />
 		<Unit filename="src/objects/screen/Screen.cpp" />
 		<Unit filename="src/objects/screen/Screen.h" />
+		<Unit filename="src/screens/employee/EmployeeScreen.cpp" />
+		<Unit filename="src/screens/employee/EmployeeScreen.h" />
+		<Unit filename="src/screens/home/HomeScreen.cpp" />
+		<Unit filename="src/screens/home/HomeScreen.h" />
 		<Unit filename="src/types/keys.types.h" />
 		<Unit filename="src/types/screen.types.h" />
+		<Unit filename="src/types/types.h" />
 		<Unit filename="src/utils/enum_utils/enum_utils.cpp" />
 		<Unit filename="src/utils/enum_utils/enum_utils.h" />
 		<Unit filename="src/utils/number_utils/number_utils.cpp" />

@@ -11,6 +11,10 @@
 #include "objects/screen/Screen.h"
 #include "objects/datetime/Datetime.h"
 
+// Add screen
+#include "screens/home/HomeScreen.h"
+#include "screens/employee/EmployeeScreen.h"
+
 // Add types
 #include "types/keys.types.h"
 
@@ -24,8 +28,8 @@ int main()
   Types::LimitedKeyCode key = 0;
 
   // Init screens
-  Screen home("Home");
-  Screen employee("Employee");
+  HomeScreen home;
+  EmployeeScreen employee;
 
   home.AddLinkedScreen(&employee);
   employee.AddLinkedScreen(&home);

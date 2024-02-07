@@ -40,7 +40,7 @@ public:
   virtual std::string GetLastName() final { return this->_last_name_; };
   virtual std::string GetFirstName() final { return this->_first_name_; };
   virtual Datetime GetBirthDate() final { return this->_birth_date_; };
-  virtual bool void GetGender() final { this->_gender_; };
+  virtual bool GetGender() final { return this->_gender_; };
   virtual ShiftsEnum::Core GetShiftType() final { return this->_shift_type_; };
   virtual unsigned short GetSalaryPerHour() final { return this->_salary_per_hour_; };
 
@@ -59,7 +59,7 @@ public:
   virtual std::string GetFullName() final { return this->_last_name_ + " " + this->_first_name_; };
   virtual int GetAge() final {
     Datetime now;
-    double distance = now.Distance(this->_birth_date_);
+    double distance = now.GetDistance(this->_birth_date_);
 
     // Need to be converted to year
     distance /= (356 * 24 * 60 * 60);

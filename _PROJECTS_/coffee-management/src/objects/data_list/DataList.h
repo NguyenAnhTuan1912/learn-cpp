@@ -2,6 +2,7 @@
 #define DATALIST_H_INCLUDED
 
 #include <map>
+#include <exception>
 #include <iterator>
 
 // Add types
@@ -14,7 +15,7 @@ class DataList {
 private:
   std::map<K, V> _data_;
   int _numof_items_per_page_;
-  size_t _current_index_;
+  size_t _current_index_ = 0;
 
 public:
   DataList() = default;
@@ -31,6 +32,23 @@ public:
   };
 
   // Other methods
+  virtual bool DeleteItem(int N) final {
+    if(N < 0 || N > (int)this->_data_.size() - 1)
+      throw std::runtime_error("Index of deleting item is out of range!!!");
+
+    typename std::map<K, V>::iterator it = this->_data_.begin();
+    int index;
+
+    while(index < N) {
+      it++;
+      index++;
+    };
+
+    this->_data_.erase(it);
+
+    return true;
+  };
+
   virtual void Next() final {
     size_t tmp = this->_current_index_ + this->_numof_items_per_page_;
 
@@ -51,10 +69,14 @@ public:
     typename std::map<K, V>::iterator it = this->_data_.begin();
     size_t index = 0;
 
-    while(index == this->_current_index_) {
+    std::cout << "Check: " << this->_current_index_ << std::endl;
+
+    while(index < this->_current_index_) {
       it++;
       index++;
     };
+
+    std::cout << it->first << std::endl;
 
     for(; it != this->_data_.end(); it++) Cb(it->second, ++index);
   };

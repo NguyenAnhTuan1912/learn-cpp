@@ -4,9 +4,11 @@
 #include <cstdlib>
 
 // Add macros
-#include "macros/keys.h"
+#include "macros/keys_macros.h"
 
 // Add objects
+#include "objects/datetime/Datetime.h"
+#include "objects/data_list/DataList.h"
 #include "objects/app/App.h"
 
 // Add screen

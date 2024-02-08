@@ -1,7 +1,7 @@
 #include <iostream>
 
 // Add macros
-#include "../../macros/keys.h"
+#include "../../macros/keys_macros.h"
 
 #include "App.h"
 

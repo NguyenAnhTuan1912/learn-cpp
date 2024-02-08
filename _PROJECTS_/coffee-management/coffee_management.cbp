@@ -33,9 +33,9 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="src/enums/enums.h" />
-		<Unit filename="src/macros/date_format.h" />
-		<Unit filename="src/macros/employee.h" />
-		<Unit filename="src/macros/keys.h" />
+		<Unit filename="src/macros/date_format_macros.h" />
+		<Unit filename="src/macros/employee_macros.h" />
+		<Unit filename="src/macros/keys_macros.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/objects/app/App.cpp" />
 		<Unit filename="src/objects/app/App.h" />

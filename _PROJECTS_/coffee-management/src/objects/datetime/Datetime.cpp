@@ -48,53 +48,49 @@ bool Datetime::CheckDatetimeStr(std::string datetime) {
 
 // Define primary members
 Datetime::Datetime(std::string datetime) {
-  try {
-    std::smatch m;
-    std::tm tm_time = *std::localtime(&this->_date_);
+  std::smatch m;
+  std::tm tm_time = *std::localtime(&this->_date_);
 
-    if(std::regex_match(datetime, m, Datetime::DATE_FORMAT_NORMAL_REGEX)) {
-      int day, month, year, hour, minute, second;
-      std::string date = m[1], time = m[2];
+  if(std::regex_match(datetime, m, Datetime::DATE_FORMAT_NORMAL_REGEX)) {
+    int day, month, year, hour, minute, second;
+    std::string date = m[1], time = m[2];
 
-      std::replace(date.begin(), date.end(), '/', ' ');
-      std::replace(time.begin(), time.end(), ':', ' ');
+    std::replace(date.begin(), date.end(), '/', ' ');
+    std::replace(time.begin(), time.end(), ':', ' ');
 
-      std::istringstream(date) >> day >> month >> year;
-      std::istringstream(time) >> hour >> minute >> second;
+    std::istringstream(date) >> day >> month >> year;
+    std::istringstream(time) >> hour >> minute >> second;
 
-      tm_time.tm_mday = day;
-      tm_time.tm_mon = month - 1;
-      tm_time.tm_year = year - 1900;
-      tm_time.tm_hour = hour;
-      tm_time.tm_min = minute;
-      tm_time.tm_sec = second;
-    } else if(std::regex_match(datetime, m, Datetime::DATE_FORMAT_ONLY_DATE_REGEX)) {
-      int day, month, year;
-      std::string date = m[1];
-      std::replace(date.begin(), date.end(), '/', ' ');
+    tm_time.tm_mday = day;
+    tm_time.tm_mon = month - 1;
+    tm_time.tm_year = year - 1900;
+    tm_time.tm_hour = hour;
+    tm_time.tm_min = minute;
+    tm_time.tm_sec = second;
+  } else if(std::regex_match(datetime, m, Datetime::DATE_FORMAT_ONLY_DATE_REGEX)) {
+    int day, month, year;
+    std::string date = m[1];
+    std::replace(date.begin(), date.end(), '/', ' ');
 
-      std::istringstream(date) >> day >> month >> year;
+    std::istringstream(date) >> day >> month >> year;
 
-      tm_time.tm_mday = day;
-      tm_time.tm_mon = month - 1;
-      tm_time.tm_year = year - 1900;
-    } else if(std::regex_match(datetime, m, Datetime::DATE_FORMAT_ONLY_TIME_REGEX)) {
-      int hour, minute, second;
-      std::string time = m[1];
+    tm_time.tm_mday = day;
+    tm_time.tm_mon = month - 1;
+    tm_time.tm_year = year - 1900;
+  } else if(std::regex_match(datetime, m, Datetime::DATE_FORMAT_ONLY_TIME_REGEX)) {
+    int hour, minute, second;
+    std::string time = m[1];
 
-      std::replace(time.begin(), time.end(), ':', ' ');
+    std::replace(time.begin(), time.end(), ':', ' ');
 
-      std::istringstream(time) >> hour >> minute >> second;
+    std::istringstream(time) >> hour >> minute >> second;
 
-      tm_time.tm_hour = hour;
-      tm_time.tm_min = minute;
-      tm_time.tm_sec = second;
-    } else throw std::runtime_error("This format of datetime isn't supported!!!");
+    tm_time.tm_hour = hour;
+    tm_time.tm_min = minute;
+    tm_time.tm_sec = second;
+  } else throw std::runtime_error("This format of datetime isn't supported!!!");
 
-    this->_date_ = std::mktime(&tm_time);
-  } catch(const std::exception& e) {
-    std::cerr << e.what();
-  }
+  this->_date_ = std::mktime(&tm_time);
 };
 
 std::string Datetime::GetDateStr() {

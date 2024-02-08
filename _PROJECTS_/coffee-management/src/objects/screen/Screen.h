@@ -4,6 +4,9 @@
 #include <iostream>
 #include <vector>
 
+// Add macros
+#include "../../macros/keys.h"
+
 // Add utils
 #include "../../utils/string_utils/string_utils.h"
 
@@ -21,6 +24,7 @@ private:
   std::string _id_ = Utils::String::GenerateRandom("screen");
   std::string _name_;
   Types::LinkedScreenMap _linked_screens_;
+  Types::LimitedKeyCode _previous_feature_key_;
 
 public:
   Screen() = default;
@@ -29,40 +33,16 @@ public:
   );
 
   // Getters
+  virtual std::string GetId() final;
+  virtual std::string GetName() final;
+  virtual Screen& GetLinkedScreen(std::string screen_id) final;
+  virtual Types::LimitedKeyCode GetPreviousFeatureKey() final;
 
-  /** \brief Use to get id of screen
-   *
-   * \return An string of screen id
-   *
-   */
-  virtual std::string GetId() final { return this->_id_; };
-
-  /** \brief Use to get name of screen
-   *
-   * \return A string of screen name
-   *
-   */
-  virtual std::string GetName() final { return this->_name_; };
-
-  /** \brief Use to get a pointer of linked screen
-   *
-   * \param screen_id An id of a screen
-   * \return A pointer of screen
-   *
-   */
-  virtual Screen& GetLinkedScreen(std::string screen_id) final {
-    return *(this->_linked_screens_[screen_id]);
-  };
+  // Setters
+  virtual void SetPreviousFeatureKey(Types::LimitedKeyCode key) final;
 
   // Other methods
-  /** \brief Use to add a linked screen
-   *
-   * \param screen A pointer of navigable screen
-   * \return void
-   */
-  virtual void AddLinkedScreen(Screen* screen) final {
-    this->_linked_screens_[screen->GetId()] = screen;
-  };
+  virtual void AddLinkedScreen(Screen* screen) final;
 
   /** \brief Use to print the content of screen
    *
@@ -71,16 +51,7 @@ public:
    * When this method is executed, the content of this screen will be printed
    * on console.
    */
-  virtual void Print() final {
-    // Clear screen
-    system("cls");
-
-    std::cout << "In screen - " << Utils::String::ToUpperCase(this->_name_) << std::endl;
-    std::cout << "=====\n";
-    // Content
-    this->Render();
-    std::cout << "=====\n";
-  };
+  virtual void Print() final;
 
   /** \brief Use to render the content of screen
    *
@@ -110,6 +81,15 @@ public:
    * features to the console. This method need to be defined specifically.
    */
   virtual bool SelectFeature(Types::LimitedKeyCode key);
+
+  /** \brief Use to print 2 decisions about continue perform a feature.
+   *
+   * \return void
+   *
+   * When perform a feature, there is maybe error occur. So this method
+   * use to get user's decision to continue or not.
+   */
+  virtual bool DeciseToContinue() final;
 };
 
 };

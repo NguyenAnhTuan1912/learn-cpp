@@ -12,6 +12,7 @@
 
 // Add utils
 #include "../../utils/enum_utils/enum_utils.h"
+#include "../../utils/string_utils/string_utils.h"
 
 namespace CoffeeShop {
 
@@ -21,9 +22,9 @@ private:
   std::string _last_name_;
   std::string _first_name_;
   Datetime _birth_date_;
-  bool _gender_;
-  ShiftsEnum::Core _shift_type_;
-  unsigned short _salary_per_hour_;
+  bool _gender_ = NULL;
+  ShiftsEnum::Core _shift_type_ = ShiftsEnum::Empty;
+  unsigned short _salary_per_hour_ = 0;
 
 public:
   Employee() = default;
@@ -31,41 +32,42 @@ public:
     std::string last_name,
     std::string first_name,
     std::string birth_date,
-    bool gender,
-    ShiftsEnum::Core shift_type,
-    unsigned short salary_per_hour
+    bool gender = true,
+    ShiftsEnum::Core shift_type = ShiftsEnum::FullTime,
+    unsigned short salary_per_hour = 20
   );
 
   // Getters
-  virtual std::string GetLastName() final { return this->_last_name_; };
-  virtual std::string GetFirstName() final { return this->_first_name_; };
-  virtual Datetime GetBirthDate() final { return this->_birth_date_; };
-  virtual bool GetGender() final { return this->_gender_; };
-  virtual ShiftsEnum::Core GetShiftType() final { return this->_shift_type_; };
-  virtual unsigned short GetSalaryPerHour() final { return this->_salary_per_hour_; };
+  virtual std::string GetId() final;
+  virtual std::string GetLastName() final;
+  virtual std::string GetFirstName() final;
+  virtual Datetime* GetBirthDate() final;
+  virtual bool GetGender() final;
+  virtual ShiftsEnum::Core GetShiftType() final;
+  virtual unsigned short GetSalaryPerHour() final;
 
   // Setters
-  virtual void SetLastName(std::string last_name) final { this->_last_name_ = last_name; };
-  virtual void SetFirstName(std::string first_name) final { this->_first_name_ = first_name; };
-  virtual void SetBirthDate(std::string birth_date) final { this->_birth_date_ = Datetime(birth_date); };
-  virtual void SetGender(bool gender) final { this->_gender_ = gender; };
-  virtual void SetShiftType(ShiftsEnum::Core en) final { this->_shift_type_ = en; };
-  virtual void SetSalaryPerHour(unsigned short sph) final { this->_salary_per_hour_ = sph; };
+  virtual void SetLastName(std::string last_name) final;
+  virtual void SetFirstName(std::string first_name) final;
+  virtual void SetBirthDate(std::string birth_date) final;
+  virtual void SetGender(bool gender) final;
+  virtual void SetShiftType(ShiftsEnum::Core en) final;
+  virtual void SetSalaryPerHour(unsigned short sph) final;
 
   // Other methods
-  virtual std::string GetBirthDateStr() final { return this->_birth_date_.GetDateStr(); };
-  virtual std::string GetShiftTypeStr() final { return Utils::Enum::GetShiftEnumStr(this->_shift_type_); };
-  virtual std::string GetGenderStr() final { return this->_gender_ == true ? "Male" : "Female"; };
-  virtual std::string GetFullName() final { return this->_last_name_ + " " + this->_first_name_; };
-  virtual int GetAge() final {
-    Datetime now;
-    double distance = now.GetDistance(this->_birth_date_);
+  virtual std::string GetBirthDateStr() final;
+  virtual std::string GetShiftTypeStr() final;
+  virtual std::string GetGenderStr() final;
+  virtual std::string GetFullName() final;
+  virtual int GetAge() final;
 
-    // Need to be converted to year
-    distance /= (356 * 24 * 60 * 60);
+  /** \brief Use to print full information of Employee
+   *
+   * \return
+   *
+   */
 
-    return distance;
-  };
+  virtual void Print() final;
 };
 
 };

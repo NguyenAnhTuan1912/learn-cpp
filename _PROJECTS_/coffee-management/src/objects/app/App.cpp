@@ -53,8 +53,11 @@ void App::Render(Types::LimitedKeyCode key) {
   bool is_select_done = this->Select(key);
 
   // Screen's selections for user
-  if(!is_select_done)
+  if(!is_select_done) {
+    // Save the selection
+    if(key != 0) this->_current_screen_->SetPreviousFeatureKey(key);
     is_select_done = this->_current_screen_->SelectFeature(key);
+  };
 
   this->_is_performed_selection_ = is_select_done;
   return;

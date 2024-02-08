@@ -42,6 +42,7 @@
 		<Unit filename="src/objects/data_list/DataList.h" />
 		<Unit filename="src/objects/datetime/Datetime.cpp" />
 		<Unit filename="src/objects/datetime/Datetime.h" />
+		<Unit filename="src/objects/employee/Employee.cpp" />
 		<Unit filename="src/objects/employee/Employee.h" />
 		<Unit filename="src/objects/ingredient/Ingredient.h" />
 		<Unit filename="src/objects/product/product.h" />

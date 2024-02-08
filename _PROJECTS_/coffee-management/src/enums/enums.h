@@ -4,6 +4,7 @@
 namespace CoffeeShop {
 namespace ShiftsEnum {
 enum Core {
+  Empty,
   PartTime,
   FullTime
 };
@@ -11,6 +12,7 @@ enum Core {
 
 namespace DrinkSizesEnum {
 enum Core {
+  Empty,
   SizeM,
   SizeL,
   SizeXL
@@ -19,6 +21,7 @@ enum Core {
 
 namespace DrinkTypesEnum {
 enum Core {
+  Empty,
   Soda,
   Yaourt,
   Coffee,
@@ -28,6 +31,7 @@ enum Core {
 
 namespace SnackTypesEnum {
 enum Core {
+  Empty,
   Sweety,
   Salty
 };
@@ -35,6 +39,7 @@ enum Core {
 
 namespace UnitsEnum {
 enum Core {
+  Empty,
   Miligram,
   Gram,
   Kilogram,

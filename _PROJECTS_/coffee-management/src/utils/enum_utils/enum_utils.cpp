@@ -1,3 +1,8 @@
+#include <conio.h>
+
+// Add macros
+#include "../../macros/keys.h"
+
 #include "enum_utils.h"
 
 namespace CoffeeShop {
@@ -11,6 +16,20 @@ std::string GetShiftEnumStr(ShiftsEnum::Core enumerator) {
     default: return "";
   };
 };
+ShiftsEnum::Core GetShiftEnum() {
+  Types::LimitedKeyCode key;
+
+  std::cout << "1. " << GetShiftEnumStr(ShiftsEnum::FullTime) << std::endl;
+  std::cout << "2. " << GetShiftEnumStr(ShiftsEnum::PartTime) << std::endl;
+
+  key = getch();
+
+  switch(key) {
+    case KEY_1: return ShiftsEnum::FullTime;
+    case KEY_2: return ShiftsEnum::PartTime;
+    default: return ShiftsEnum::FullTime;
+  };
+};
 
 std::string GetDrinkSizeEnumStr(DrinkSizesEnum::Core enumerator) {
   switch(enumerator) {
@@ -18,6 +37,22 @@ std::string GetDrinkSizeEnumStr(DrinkSizesEnum::Core enumerator) {
     case DrinkSizesEnum::SizeL: return "L";
     case DrinkSizesEnum::SizeXL: return "XL";
     default: return "";
+  };
+};
+DrinkSizesEnum::Core GetDrinkSizeEnum() {
+  Types::LimitedKeyCode key;
+
+  std::cout << "1. " << GetDrinkSizeEnumStr(DrinkSizesEnum::SizeL) << std::endl;
+  std::cout << "2. " << GetDrinkSizeEnumStr(DrinkSizesEnum::SizeM) << std::endl;
+  std::cout << "3. " << GetDrinkSizeEnumStr(DrinkSizesEnum::SizeXL) << std::endl;
+
+  key = getch();
+
+  switch(key) {
+    case KEY_1: return DrinkSizesEnum::SizeL;
+    case KEY_2: return DrinkSizesEnum::SizeM;
+    case KEY_3: return DrinkSizesEnum::SizeXL;
+    default: return DrinkSizesEnum::SizeM;
   };
 };
 

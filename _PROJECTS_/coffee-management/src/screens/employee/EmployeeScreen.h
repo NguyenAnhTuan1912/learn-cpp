@@ -6,8 +6,8 @@
 
 // Add objects
 #include "../../objects/screen/Screen.h"
-#include "../../objects/data_list/DataList.h"
 #include "../../objects/employee/Employee.h"
+#include "../../objects/data_list/DataList.h"
 
 // Add types
 #include "../../types/keys.types.h"
@@ -17,6 +17,7 @@ namespace CoffeeShop {
 class EmployeeScreen : public Screen {
 private:
   DataList<std::string, Employee> _data_;
+  Employee _emp_holder_;
 
 public:
   EmployeeScreen(): Screen("Employee") {};

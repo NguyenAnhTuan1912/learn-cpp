@@ -6,6 +6,9 @@
 // Add enums
 #include "../../enums/enums.h"
 
+// Add types
+#include "../../types/keys.types.h"
+
 namespace CoffeeShop {
 namespace Utils {
 namespace Enum {
@@ -17,6 +20,13 @@ namespace Enum {
  *
  */
 std::string GetShiftEnumStr(ShiftsEnum::Core enumerator);
+/** \brief Use to get a ShiftEnum item from keyboard
+ *
+ * \param key A key value (ASCII) from keyboard
+ * \return
+ *
+ */
+ShiftsEnum::Core GetShiftEnum();
 
 /** \brief Use to get a text by DrinkSizesEnum::Core
  *
@@ -25,6 +35,13 @@ std::string GetShiftEnumStr(ShiftsEnum::Core enumerator);
  *
  */
 std::string GetDrinkSizeEnumStr(DrinkSizesEnum::Core enumerator);
+/** \brief Use to get a DrinkSizesEnum item from keyboard
+ *
+ * \param key A key value (ASCII) from keyboard
+ * \return
+ *
+ */
+DrinkSizesEnum::Core GetDrinkSizeEnum();
 
 /** \brief Use to get a text by DrinkTypesEnum::Core
  *
@@ -33,6 +50,13 @@ std::string GetDrinkSizeEnumStr(DrinkSizesEnum::Core enumerator);
  *
  */
 std::string GetDrinkTypeEnumStr(DrinkTypesEnum::Core enumerator);
+/** \brief Use to get a DrinkTypesEnum item from keyboard
+ *
+ * \param key A key value (ASCII) from keyboard
+ * \return
+ *
+ */
+DrinkTypesEnum::Core GetDrinkTypeEnum();
 
 /** \brief Use to get a text by SnackTypesEnum::Core
  *
@@ -41,6 +65,13 @@ std::string GetDrinkTypeEnumStr(DrinkTypesEnum::Core enumerator);
  *
  */
 std::string GetSnackTypeEnumStr(SnackTypesEnum::Core enumerator);
+/** \brief Use to get a SnackTypesEnum item from keyboard
+ *
+ * \param key A key value (ASCII) from keyboard
+ * \return
+ *
+ */
+SnackTypesEnum::Core GetSnackTypeEnum();
 
 /** \brief Use to get a text by UnitsEnum::Core
  *
@@ -49,6 +80,14 @@ std::string GetSnackTypeEnumStr(SnackTypesEnum::Core enumerator);
  *
  */
 std::string GetUnitEnumStr(UnitsEnum::Core enumerator);
+/** \brief Use to get a UnitsEnum item from keyboard
+ *
+ * \param key A key value (ASCII) from keyboard
+ * \return
+ *
+ */
+UnitsEnum::Core GetUnitEnum();
+
 };
 };
 };

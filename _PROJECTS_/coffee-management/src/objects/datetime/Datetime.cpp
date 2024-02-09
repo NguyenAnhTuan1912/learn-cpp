@@ -48,6 +48,8 @@ bool Datetime::CheckDatetimeStr(std::string datetime) {
 
 // Define primary members
 Datetime::Datetime(std::string datetime) {
+  this->_date_ = time(nullptr);
+
   std::smatch m;
   std::tm tm_time = *std::localtime(&this->_date_);
 
@@ -88,10 +90,23 @@ Datetime::Datetime(std::string datetime) {
     tm_time.tm_hour = hour;
     tm_time.tm_min = minute;
     tm_time.tm_sec = second;
-  } else throw std::runtime_error("This format of datetime isn't supported!!!");
+  } else {
+    this->_date_ = 0;
+    throw std::runtime_error("This format of datetime isn't supported!!!");
+  };
 
   this->_date_ = std::mktime(&tm_time);
 };
+
+// Getters
+time_t Datetime::GetDatetime() { return this->_date_; };
+
+// Setters
+void Datetime::SetDatetime(time_t date) { this->_date_ = date; };
+
+
+// Other methods
+bool Datetime::IsNull() { return (this->_date_ == 0 ? true : false); };
 
 std::string Datetime::GetDateStr() {
   char result[256];
@@ -127,6 +142,42 @@ std::string Datetime::GetFullDatetimeStr() {
   std::strftime(result, sizeof(result), DATE_FORMAT_FULL, std::localtime(&this->_date_));
 
   return result;
+};
+
+double Datetime::GetDistance(Datetime& dt) {
+  return difftime(this->_date_, dt.GetDatetime());
+};
+
+// Other operators
+bool Datetime::operator>(Datetime& dt) { return this->_date_ > dt.GetDatetime(); };
+bool Datetime::operator>(std::string dt_str) {
+  Datetime dt(dt_str);
+  return this->_date_ > dt.GetDatetime();
+};
+bool Datetime::operator<(Datetime& dt) { return this->_date_ < dt.GetDatetime(); };
+bool Datetime::operator<(std::string dt_str) {
+  Datetime dt(dt_str);
+  return this->_date_ < dt.GetDatetime();
+};
+bool Datetime::operator>=(Datetime& dt) { return this->_date_ >= dt.GetDatetime(); };
+bool Datetime::operator>=(std::string dt_str) {
+  Datetime dt(dt_str);
+  return this->_date_ >= dt.GetDatetime();
+};
+bool Datetime::operator<=(Datetime& dt) { return this->_date_ <= dt.GetDatetime(); };
+bool Datetime::operator<=(std::string dt_str) {
+  Datetime dt(dt_str);
+  return this->_date_ <= dt.GetDatetime();
+};
+bool Datetime::operator==(Datetime& dt) { return this->_date_ == dt.GetDatetime(); };
+bool Datetime::operator==(std::string dt_str) {
+  Datetime dt(dt_str);
+  return this->_date_ == dt.GetDatetime();
+};
+bool Datetime::operator!=(Datetime& dt) { return this->_date_ != dt.GetDatetime(); };
+bool Datetime::operator!=(std::string dt_str) {
+  Datetime dt(dt_str);
+  return this->_date_ != dt.GetDatetime();
 };
 
 };

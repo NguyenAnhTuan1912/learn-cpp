@@ -14,6 +14,7 @@
 // Add screen
 #include "screens/home/HomeScreen.h"
 #include "screens/employee/EmployeeScreen.h"
+#include "screens/ingredient/IngredientScreen.h"
 
 // Add types
 #include "types/keys.types.h"
@@ -30,9 +31,19 @@ int main()
   // Init screens
   HomeScreen home;
   EmployeeScreen employee;
+  IngredientScreen ingredient;
 
+  // Home link
   home.AddLinkedScreen(&employee);
+  home.AddLinkedScreen(&ingredient);
+
+  // Employee link
   employee.AddLinkedScreen(&home);
+  employee.AddLinkedScreen(&ingredient);
+
+  // Ingredient link
+  ingredient.AddLinkedScreen(&home);
+  ingredient.AddLinkedScreen(&employee);
 
   // Init app
   App app(&home);

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1707443646 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
+1707467014 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
 	<iostream>
 	<conio.h>
 	<ctime>
@@ -10,6 +10,7 @@
 	"objects/app/App.h"
 	"screens/home/HomeScreen.h"
 	"screens/employee/EmployeeScreen.h"
+	"screens/ingredient/IngredientScreen.h"
 	"types/keys.types.h"
 
 1707378028 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.h
@@ -29,7 +30,7 @@
 	<iostream>
 	<vector>
 
-1707378038 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.cpp
+1707467665 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.cpp
 	<iostream>
 	<stdlib.h>
 	<conio.h>
@@ -57,14 +58,14 @@
 	<map>
 	"../objects/screen/Screen.h"
 
-1707381408 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\datetime\datetime.h
+1707468005 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\datetime\datetime.h
 	<ctime>
 	<regex>
 	"../../macros/date_format_macros.h"
 
 1707376669 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\macros\date_format.h
 
-1707381414 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\datetime\datetime.cpp
+1707468125 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\datetime\datetime.cpp
 	<sstream>
 	<algorithm>
 	<string>
@@ -76,9 +77,9 @@
 	"Datetime.h"
 	"../../utils/string_utils/string_utils.h"
 
-1707364614 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\enum_utils\enum_utils.cpp
+1707464476 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\enum_utils\enum_utils.cpp
 	<conio.h>
-	"../../macros/keys.h"
+	"../../macros/keys_macros.h"
 	"enum_utils.h"
 
 1707360788 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\enum_utils\enum_utils.h
@@ -126,7 +127,7 @@
 1707315494 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\types\types.h
 	<functional>
 
-1707448072 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\employee\employeescreen.cpp
+1707469430 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\employee\employeescreen.cpp
 	<conio.h>
 	<string>
 	<exception>
@@ -158,4 +159,41 @@
 1707446291 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\macros\keys_macros.h
 
 1707380516 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\macros\employee_macros.h
+
+1707468288 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\ingredient\ingredient.cpp
+	"Ingredient.h"
+	"../../utils/enum_utils/enum_utils.h"
+
+1707468295 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\ingredient\ingredient.h
+	<ctime>
+	"../../enums/enums.h"
+	"../../utils/string_utils/string_utils.h"
+	"../datetime/Datetime.h"
+	"../../utils/enum_utils/enum_utils.h"
+
+1707464932 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\product\product.cpp
+	"Product.h"
+
+1707464866 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\product\product.h
+	<vector>
+	<ctime>
+	"../../enums/enums.h"
+	"../ingredient/Ingredient.h"
+
+1707465013 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\ingredient\ingredientscreen.h
+	"../../macros/keys_macros.h"
+	"../../objects/screen/Screen.h"
+	"../../objects/ingredient/Ingredient.h"
+	"../../objects/data_list/DataList.h"
+	"../../objects/datetime/Datetime.h"
+	"../../types/keys.types.h"
+
+1707469213 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\ingredient\ingredientscreen.cpp
+	<conio.h>
+	<string>
+	<exception>
+	"IngredientScreen.h"
+	"../../types/types.h"
+	"../../utils/string_utils/string_utils.h"
+	"../../utils/enum_utils/enum_utils.h"
 

@@ -24,8 +24,8 @@ PrintData = [](CoffeeShop::Employee& item, int index) {
   std::cout << "\n";
 };
 
-bool IsValidBirthDate(CoffeeShop::Datetime& dt) {
-  CoffeeShop::Datetime t;
+bool IsBirthDateValid(CoffeeShop::Datetime& dt) {
+  CoffeeShop::Datetime t(time(0));
   return !(t.GetDateStr() == dt.GetDateStr());
 };
 
@@ -78,7 +78,7 @@ bool EmployeeScreen::PerformAddEmployee() {
 
     // Get birthday
     std::cout << "Enter birthday: ";
-    if(!(::IsValidBirthDate(*(this->_emp_holder_.GetBirthDate())))) {
+    if(!(::IsBirthDateValid(*(this->_emp_holder_.GetBirthDate())))) {
       std::getline(std::cin, text_tmp);
 
       // Is birthdate of this person is match with requirement?

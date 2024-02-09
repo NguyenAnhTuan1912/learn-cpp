@@ -19,46 +19,48 @@ class Ingredient {
 private:
   std::string _id_ = Utils::String::GenerateRandom("ingredient");
   std::string _name_;
-  Datetime _inbouding_date_;
+  Datetime _inbounding_date_;
   Datetime _manufacturing_date_;
   Datetime _expiry_date_;
-  unsigned short _amount_;
-  unsigned short _cost_per_unit_;
-  UnitsEnum::Core _unit_;
+  float _amount_ = 0;
+  float _cost_per_unit_ = 0;
+  UnitsEnum::Core _unit_ = UnitsEnum::Empty;
 
 public:
   Ingredient() = default;
   Ingredient(
     std::string name,
-    Datetime inbouding_date,
-    Datetime manufacturing_date,
-    Datetime expiry_date,
-    unsigned short amount,
-    unsigned short cost_per_unit,
-    UnitsEnum::Core unit
+    std::string inbounding_date,
+    std::string manufacturing_date,
+    std::string expiry_date,
+    float amount = 0,
+    float cost_per_unit = 0,
+    UnitsEnum::Core unit = UnitsEnum::Empty
   );
 
   // Getters
-  virtual std::string GetId() final { return this->_id_; };
-  virtual std::string GetName() final { return this->_name_; };
-  virtual Datetime GetInboudingDate() final { return this->_inbouding_date_; };
-  virtual Datetime GetManufacturingDate() final { return this->_manufacturing_date_; };
-  virtual Datetime GetExpiryDate() final { return this->_expiry_date_; };
-  virtual unsigned short GetAmount() final { return this->_amount_; };
-  virtual unsigned short GetCostPerUnit() final { return this->_cost_per_unit_; };
-  virtual UnitsEnum::Core GetUnit() final { return this->_unit_; };
+  virtual std::string GetId() final;
+  virtual std::string GetName() final;
+  virtual Datetime* GetInboundingDate() final;
+  virtual Datetime* GetManufacturingDate() final;
+  virtual Datetime* GetExpiryDate() final;
+  virtual float GetAmount() final;
+  virtual float GetCostPerUnit() final;
+  virtual UnitsEnum::Core GetUnit() final;
 
   // Setters
-  virtual void SetName(std::string name) final { this->_name_ = name; };
-  virtual void SetInboudingDate(std::string date) final { this->_inbouding_date_ = Datetime(date); };
-  virtual void SetManufacturingDate(std::string date final { this->_manufacturing_date_ = Datetime(date); };
-  virtual void SetExpiryDate(std::string date) final { this->_expiry_date_ = Datetime(date); };
-  virtual void SetAmount(unsigned short amount) final { this->_amount_ = amount; };
-  virtual void SetCostPerUnit(unsigned short cpu) final { this->_cost_per_unit_ = cpu; };
-  virtual void SetUnit(UnitsEnum::Core en) final { this->_unit_ = en; };
+  virtual void SetName(std::string name) final;
+  virtual void SetInboundingDate(std::string date) final;
+  virtual void SetManufacturingDate(std::string date) final;
+  virtual void SetExpiryDate(std::string date) final;
+  virtual void SetAmount(float amount) final;
+  virtual void SetCostPerUnit(float cpu) final;
+  virtual void SetUnit(UnitsEnum::Core en) final;
 
   // Other methods
-  virtual std::string GetUnitStr() final { return Utils::Enum::GetUnitEnumStr(this->_unit_); };
+  virtual std::string GetUnitStr() final;
+  virtual void Print() final;
+  virtual void PrintOnlyData() final;
 };
 
 };

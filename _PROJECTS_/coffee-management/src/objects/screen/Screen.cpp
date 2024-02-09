@@ -33,7 +33,7 @@ Screen& Screen::GetLinkedScreen(std::string screen_id) {
 void Screen::SetPreviousFeatureKey(Types::LimitedKeyCode key)  { this->_previous_feature_key_ = key; };
 // Other methods
 void Screen::AddLinkedScreen(Screen* screen) {
-  this->_linked_screens_[screen->GetId()] = screen;
+  this->_linked_screens_.insert({screen->GetId(), screen});
 };
 
 void Screen::Print() {

@@ -16,7 +16,7 @@ class Product {
 private:
   std::string _id_;
   std::string _name_;
-  std::vector<Ingredient*> _ingredients_;
+  std::vector<Ingredient> _ingredients_;
   unsigned short _base_cost_;
 
 public:
@@ -27,17 +27,17 @@ public:
   );
 
   // Getters
-  virtual std::string GetId() final { return this->_id_; };
-  virtual std::string GetName() final { return this->_name_; };
-  virtual td::vector<Ingredient*> GetIngredients() final { return this->_ingredients_; };
-  virtual unsigned short GetBaseCost() final { return this->_base_cost_; };
+  virtual std::string GetId() final;
+  virtual std::string GetName() final;
+  virtual std::vector<Ingredient>* GetIngredients() final;
+  virtual unsigned short GetBaseCost() final;
 
   // Setters
-  virtual void SetName(std::string name) final { this->_name_ = name; };
-  virtual void SetBaseCost(unsigned short bc) final { this->_base_cost_ = bc; };
+  virtual void SetName(std::string name) final;
+  virtual void SetBaseCost(unsigned short bc) final;
 
   // Other methods
-  virtual void AddIngredient(Ingredient& idg) final { this->_ingredients_.push_back(idg); };
+  virtual void AddIngredient(Ingredient& idg) final;
 };
 
 class Drink : public Product {
@@ -54,15 +54,15 @@ public:
   );
 
   // Getters
-  virtual std::vector<DrinkSizesEnum::Core> GetSizeOfDrink() final { return this->_size_of_drink_; };
-  virtual DrinkTypesEnum::Core GetTypeOfDrink() final { return this->_type_of_drink_; };
+  virtual std::vector<DrinkSizesEnum::Core> GetSizeOfDrink() final;
+  virtual DrinkTypesEnum::Core GetTypeOfDrink() final;
 
   // Setters
-  virtual void SetTypeOfDrink(DrinkTypesEnum::Core en) final { this->_type_of_drink_ = en; };
+  virtual void SetTypeOfDrink(DrinkTypesEnum::Core en) final;
 
   // Other methods
-  virtual std::string GetTypeOfDrinkStr() final { return Utils::Enum::GetDrinkTypeEnumStr(this->_type_of_drink_); };
-  virtual DrinkSizesEnum::Core AddSize(DrinkSizesEnum::Core s) final { this->_size_of_drink_.push_back(s); };
+  virtual std::string GetTypeOfDrinkStr() final;
+  virtual void AddSize(DrinkSizesEnum::Core s);
 };
 
 class Snack : public Product {
@@ -78,13 +78,13 @@ public:
   );
 
   // Getters
-  virtual SnackTypesEnum::Core GetTypeOfSnack() final { return this->_type_of_snack_; };
+  virtual SnackTypesEnum::Core GetTypeOfSnack() final;
 
   // Setters
-  virtual void SetTypeOfSnack(SnackTypesEnum::Core en) final { this->_type_of_snack_ = en; };
+  virtual void SetTypeOfSnack(SnackTypesEnum::Core en) final;
 
   // Other methods
-  virtual std::string GetTypeOfSnackStr() final { return Utils::Enum::GetSnackTypeEnumStr(this->_type_of_snack_); };
+  virtual std::string GetTypeOfSnackStr() final;
 };
 
 };

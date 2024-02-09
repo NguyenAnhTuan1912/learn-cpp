@@ -1,7 +1,7 @@
 #include <conio.h>
 
 // Add macros
-#include "../../macros/keys.h"
+#include "../../macros/keys_macros.h"
 
 #include "enum_utils.h"
 
@@ -65,12 +65,44 @@ std::string GetDrinkTypeEnumStr(DrinkTypesEnum::Core enumerator) {
     default: return "";
   };
 };
+DrinkTypesEnum::Core GetDrinkTypeEnum() {
+  Types::LimitedKeyCode key;
+
+  std::cout << "1. " << GetDrinkTypeEnumStr(DrinkTypesEnum::Coffee) << std::endl;
+  std::cout << "2. " << GetDrinkTypeEnumStr(DrinkTypesEnum::Juice) << std::endl;
+  std::cout << "3. " << GetDrinkTypeEnumStr(DrinkTypesEnum::Soda) << std::endl;
+  std::cout << "4. " << GetDrinkTypeEnumStr(DrinkTypesEnum::Yaourt) << std::endl;
+
+  key = getch();
+
+  switch(key) {
+    case KEY_1: return DrinkTypesEnum::Coffee;
+    case KEY_2: return DrinkTypesEnum::Juice;
+    case KEY_3: return DrinkTypesEnum::Soda;
+    case KEY_4: return DrinkTypesEnum::Yaourt;
+    default: return DrinkTypesEnum::Coffee;
+  };
+};
 
 std::string GetSnackTypeEnumStr(SnackTypesEnum::Core enumerator) {
   switch(enumerator) {
     case SnackTypesEnum::Salty: return "Salty";
     case SnackTypesEnum::Sweety: return "Sweety";
     default: return "";
+  };
+};
+SnackTypesEnum::Core GetSnackTypeEnum() {
+  Types::LimitedKeyCode key;
+
+  std::cout << "1. " << GetSnackTypeEnumStr(SnackTypesEnum::Salty) << std::endl;
+  std::cout << "2. " << GetSnackTypeEnumStr(SnackTypesEnum::Sweety) << std::endl;
+
+  key = getch();
+
+  switch(key) {
+    case KEY_1: return SnackTypesEnum::Salty;
+    case KEY_2: return SnackTypesEnum::Sweety;
+    default: return SnackTypesEnum::Salty;
   };
 };
 
@@ -83,6 +115,28 @@ std::string GetUnitEnumStr(UnitsEnum::Core enumerator) {
     case UnitsEnum::Litre: return "Litre";
     case UnitsEnum::Kilolitre: return "Kilolitre";
     default: return "";
+  };
+};
+UnitsEnum::Core GetUnitEnum() {
+  Types::LimitedKeyCode key;
+
+  std::cout << "1. " << GetUnitEnumStr(UnitsEnum::Miligram) << std::endl;
+  std::cout << "2. " << GetUnitEnumStr(UnitsEnum::Gram) << std::endl;
+  std::cout << "3. " << GetUnitEnumStr(UnitsEnum::Kilogram) << std::endl;
+  std::cout << "4. " << GetUnitEnumStr(UnitsEnum::Mililitre) << std::endl;
+  std::cout << "5. " << GetUnitEnumStr(UnitsEnum::Litre) << std::endl;
+  std::cout << "6. " << GetUnitEnumStr(UnitsEnum::Kilolitre) << std::endl;
+
+  key = getch();
+
+  switch(key) {
+    case KEY_1: return UnitsEnum::Miligram;
+    case KEY_2: return UnitsEnum::Gram;
+    case KEY_3: return UnitsEnum::Kilogram;
+    case KEY_4: return UnitsEnum::Mililitre;
+    case KEY_5: return UnitsEnum::Litre;
+    case KEY_6: return UnitsEnum::Kilolitre;
+    default: return UnitsEnum::Miligram;
   };
 };
 

@@ -11,7 +11,7 @@ namespace CoffeeShop {
 
 class Datetime {
 private:
-  time_t _date_ = time(nullptr);
+  time_t _date_;
 
 public:
   Datetime() = default;
@@ -19,10 +19,10 @@ public:
   Datetime(time_t t): _date_(t) {};
 
   // Getters
-  virtual time_t GetDatetime() final { return this->_date_; };
+  virtual time_t GetDatetime() final;
 
   // Setters
-  virtual void SetDatetime(time_t date) final { this->_date_ = date; };
+  virtual void SetDatetime(time_t date) final;
 
   // Static properties
   static std::regex DATE_FORMAT_FULL_REGEX;
@@ -38,6 +38,15 @@ public:
   static bool CheckDatetimeStr(std::string datetime);
 
   // Other methods
+  /** \brief Use to check if Datetime is NULL
+   *
+   * \return
+   *
+   * It depend on its data, if equal to 0 that means this Datetime instance
+   * is NULL.
+   */
+  virtual bool IsNull() final;
+
   /** \brief Use to get datetime string as "a, dd/MM/yyyy hh:mm:ss" (Full) format
    *
    * \return A full datetime format string
@@ -73,17 +82,21 @@ public:
    *
    */
 
-  virtual double GetDistance(Datetime& dt) final {
-    return difftime(this->_date_, dt.GetDatetime());
-  };
+  virtual double GetDistance(Datetime& dt) final;
 
   // Other operators
-  virtual bool operator>(Datetime& dt) final { return this->_date_ > dt.GetDatetime(); };
-  virtual bool operator<(Datetime& dt) final { return this->_date_ < dt.GetDatetime(); };
-  virtual bool operator>=(Datetime& dt) final { return this->_date_ >= dt.GetDatetime(); };
-  virtual bool operator<=(Datetime& dt) final { return this->_date_ <= dt.GetDatetime(); };
-  virtual bool operator==(Datetime& dt) final { return this->_date_ == dt.GetDatetime(); };
-  virtual bool operator!=(Datetime& dt) final { return this->_date_ != dt.GetDatetime(); };
+  virtual bool operator>(Datetime& dt) final;
+  virtual bool operator>(std::string dt_str) final;
+  virtual bool operator<(Datetime& dt) final;
+  virtual bool operator<(std::string dt_str) final;
+  virtual bool operator>=(Datetime& dt) final;
+  virtual bool operator>=(std::string dt_str) final;
+  virtual bool operator<=(Datetime& dt) final;
+  virtual bool operator<=(std::string dt_str) final;
+  virtual bool operator==(Datetime& dt) final;
+  virtual bool operator==(std::string dt_str) final;
+  virtual bool operator!=(Datetime& dt) final;
+  virtual bool operator!=(std::string dt_str) final;
 };
 };
 

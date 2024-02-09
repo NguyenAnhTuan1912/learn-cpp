@@ -15,6 +15,6 @@ Như đã đề cập ở trên, thì quá trình này sẽ được chia thành
 2. __Operators__, [Xem thêm](/operators)
 3. __Structuring Codebase__, [Xem thêm](/structuring_codebase)
 4. __Functions__, [Xem thêm](/function)
-5. __Pointer__, [Xem thêm](/pointer)
+5. __Pointer__, [Xem thêm](/pointer_reference)
 6. __Object Oriented Programming__, [Xem thêm](/object_oriented_programming)
 7. __Templates__, [Xem thêm](/templates)

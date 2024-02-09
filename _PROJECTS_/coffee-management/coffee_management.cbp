@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="coffee_management" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="debug">
+				<Option output="bin/debug/coffee_management" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="release">
+				<Option output="bin/release/coffee_management" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="src/enums/enums.h" />
+		<Unit filename="src/macros/date_format_macros.h" />
+		<Unit filename="src/macros/employee_macros.h" />
+		<Unit filename="src/macros/keys_macros.h" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/objects/app/App.cpp" />
+		<Unit filename="src/objects/app/App.h" />
+		<Unit filename="src/objects/data_list/DataList.h" />
+		<Unit filename="src/objects/datetime/Datetime.cpp" />
+		<Unit filename="src/objects/datetime/Datetime.h" />
+		<Unit filename="src/objects/employee/Employee.cpp" />
+		<Unit filename="src/objects/employee/Employee.h" />
+		<Unit filename="src/objects/ingredient/Ingredient.cpp" />
+		<Unit filename="src/objects/ingredient/Ingredient.h" />
+		<Unit filename="src/objects/product/Product.cpp" />
+		<Unit filename="src/objects/product/Product.h" />
+		<Unit filename="src/objects/screen/Screen.cpp" />
+		<Unit filename="src/objects/screen/Screen.h" />
+		<Unit filename="src/screens/employee/EmployeeScreen.cpp" />
+		<Unit filename="src/screens/employee/EmployeeScreen.h" />
+		<Unit filename="src/screens/home/HomeScreen.cpp" />
+		<Unit filename="src/screens/home/HomeScreen.h" />
+		<Unit filename="src/screens/ingredient/IngredientScreen.cpp" />
+		<Unit filename="src/screens/ingredient/IngredientScreen.h" />
+		<Unit filename="src/screens/product/ProductScreen.cpp" />
+		<Unit filename="src/screens/product/ProductScreen.h" />
+		<Unit filename="src/types/keys.types.h" />
+		<Unit filename="src/types/screen.types.h" />
+		<Unit filename="src/types/types.h" />
+		<Unit filename="src/utils/enum_utils/enum_utils.cpp" />
+		<Unit filename="src/utils/enum_utils/enum_utils.h" />
+		<Unit filename="src/utils/number_utils/number_utils.cpp" />
+		<Unit filename="src/utils/number_utils/number_utils.h" />
+		<Unit filename="src/utils/string_utils/string_utils.cpp" />
+		<Unit filename="src/utils/string_utils/string_utils.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

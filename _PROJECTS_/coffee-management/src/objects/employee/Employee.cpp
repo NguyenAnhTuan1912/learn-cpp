@@ -45,7 +45,7 @@ std::string Employee::GetGenderStr() { return this->_gender_ == true ? "Male" : 
 std::string Employee::GetFullName() { return this->_last_name_ + " " + this->_first_name_; };
 
 int Employee::GetAge() {
-  Datetime now;
+  Datetime now(time(0));
   double distance = now.GetDistance(this->_birth_date_);
 
   // Need to be converted to year

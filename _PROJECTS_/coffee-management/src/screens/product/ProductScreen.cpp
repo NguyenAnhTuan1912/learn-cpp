@@ -41,6 +41,8 @@ void ProductScreen::Render() {
     std::cout << "Snack List is empty. Please add some products to start!!!\n";
   else {
     this->_snack_data_.Print(::PrintSnackData);
+    std::cout << "Page: " << this->_snack_data_.GetCurrentPage() << " | ";
+    std::cout << "q. Previous; p. Next\n";
   };
 
   std::cout << "-----\n";
@@ -50,6 +52,8 @@ void ProductScreen::Render() {
     std::cout << "Snack List is empty. Please add some products to start!!!\n";
   else {
     this->_drink_data_.Print(::PrintDrinkData);
+    std::cout << "Page: " << this->_drink_data_.GetCurrentPage() << " | ";
+    std::cout << "a. Previous; l. Next\n";
   };
 };
 
@@ -304,6 +308,30 @@ bool ProductScreen::SelectFeature(Types::LimitedKeyCode key) {
 
     case KEY_6: {
       return this->PerformUpdateDrink();
+    };
+
+    case KEY_q: {
+      this->_snack_data_.Previous();
+      this->SetPreviousFeatureKey(0);
+      return true;
+    };
+
+    case KEY_p: {
+      this->_snack_data_.Next();
+      this->SetPreviousFeatureKey(0);
+      return true;
+    };
+
+    case KEY_a: {
+      this->_drink_data_.Previous();
+      this->SetPreviousFeatureKey(0);
+      return true;
+    };
+
+    case KEY_l: {
+      this->_drink_data_.Next();
+      this->SetPreviousFeatureKey(0);
+      return true;
     };
 
     default: {

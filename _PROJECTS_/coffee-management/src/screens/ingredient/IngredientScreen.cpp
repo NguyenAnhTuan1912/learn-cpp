@@ -39,6 +39,8 @@ void IngredientScreen::Render() {
     std::cout << "Ingredient List is empty. Please add some ingredients to start!!!\n";
   else {
     this->_data_.Print(::PrintData);
+    std::cout << "Page: " << this->_data_.GetCurrentPage() << " | ";
+    std::cout << "q. Previous; p. Next\n";
   };
 };
 
@@ -290,6 +292,18 @@ bool IngredientScreen::SelectFeature(Types::LimitedKeyCode key) {
 
     case KEY_3: {
       return this->PerformUpdateIngredient();
+    };
+
+    case KEY_q: {
+      this->_data_.Previous();
+      this->SetPreviousFeatureKey(0);
+      return true;
+    };
+
+    case KEY_p: {
+      this->_data_.Next();
+      this->SetPreviousFeatureKey(0);
+      return true;
     };
 
     default: {

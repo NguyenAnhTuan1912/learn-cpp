@@ -14,7 +14,7 @@ template<typename K, class V>
 class DataList {
 private:
   std::map<K, V> _data_;
-  int _numof_items_per_page_;
+  int _numof_items_per_page_ = 5;
   size_t _current_index_ = 0;
 
   /** \brief Use this method to get item at N
@@ -80,10 +80,14 @@ public:
     return &it->second;
   };
 
+  virtual int GetCurrentPage() {
+    return (this->_current_index_ / this->_numof_items_per_page_) + 1;
+  };
+
   virtual void Next() final {
     size_t tmp = this->_current_index_ + this->_numof_items_per_page_;
 
-    if(tmp >= this->_data_.size()) tmp = this->_data_.size() - 1;
+    if(tmp >= this->_data_.size()) return;
 
     this->_current_index_ = tmp;
   };
@@ -91,7 +95,7 @@ public:
   virtual void Previous() final {
     size_t tmp = this->_current_index_ - this->_numof_items_per_page_;
 
-    if(tmp < 0) tmp = 0;
+    if((long long)tmp < 0) tmp = 0;
 
     this->_current_index_ = tmp;
   };
@@ -99,7 +103,7 @@ public:
   virtual void Print(Types::DataListPrintCallBack<V>& Cb) final {
     typename std::map<K, V>::iterator it = this->_GetIteratorOfMapAt_(this->_current_index_);
     int index = 0;
-    for(; it != this->_data_.end(); it++) Cb(it->second, ++index);
+    for(; it != this->_data_.end() && index < (this->_numof_items_per_page_); it++) Cb(it->second, ++index);
   };
 };
 

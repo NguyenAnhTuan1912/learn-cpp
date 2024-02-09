@@ -34,6 +34,7 @@ bool IsManufacturingValid(std::string date) {
 namespace CoffeeShop {
 
 void IngredientScreen::Render() {
+  std::cout << "Ingredients: \n";
   if(this->_data_.GetData()->size() == 0)
     std::cout << "Ingredient List is empty. Please add some ingredients to start!!!\n";
   else {

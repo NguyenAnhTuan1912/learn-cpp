@@ -17,7 +17,8 @@ namespace CoffeeShop {
 
 class ProductScreen : public Screen {
 private:
-  DataList<std::string, Employee> _data_;
+  DataList<std::string, Drink> _drink_data_;
+  DataList<std::string, Snack> _snack_data_;
   Drink _drk_holder_;
   Snack _snk_holder_;
 
@@ -25,37 +26,79 @@ public:
   ProductScreen(): Screen("Product") {};
 
   // Other methods
-  /** \brief Use to check age of person is suitable for work
+  /** \brief Use to perform "add product" action.
    *
-   * \param datetime A datetime as string that wanted to check
+   * \param prod A product that want to be added
    * \return
    *
+   * View more in source file.
    */
-  bool IsAgeSuitableForWork(std::string datetime);
+  void PerformAddProduct(Product& prod);
 
-  /** \brief Use to perform "add employee" action.
+  /** \brief Use to perform "add snack" action.
    *
    * \return
    *
    * View more in source file.
    */
-  bool PerformAddEmployee();
+  bool PerformAddSnack();
 
-  /** \brief Use to perform "delete employee" action.
+  /** \brief Use to perform "add drink" action.
    *
    * \return
    *
    * View more in source file.
    */
-  bool PerformDeleteEmployee();
+  bool PerformAddDrink();
 
-  /** \brief Use to perform "update employee" action.
+  /** \brief Use to perform "delete product" action.
    *
    * \return
    *
    * View more in source file.
    */
-  bool PerformUpdateEmployee();
+  bool PerformDeleteProduct(auto& data);
+
+  /** \brief Use to perform "delete snack" action.
+   *
+   * \return
+   *
+   * View more in source file.
+   */
+  bool PerformDeleteSnack();
+
+  /** \brief Use to perform "delete drink" action.
+   *
+   * \return
+   *
+   * View more in source file.
+   */
+  bool PerformDeleteDrink();
+
+  /** \brief Use to perform "update product" action.
+   *
+   * \param prod A product that want to be updated
+   * \return
+   *
+   * View more in source file.
+   */
+  Product* PerformUpdateProduct(auto& data);
+
+  /** \brief Use to perform "update snack" action.
+   *
+   * \return
+   *
+   * View more in source file.
+   */
+  bool PerformUpdateSnack();
+
+  /** \brief Use to perform "update drink" action.
+   *
+   * \return
+   *
+   * View more in source file.
+   */
+  bool PerformUpdateDrink();
 
   void Render();
   bool SelectFeature(Types::LimitedKeyCode key);

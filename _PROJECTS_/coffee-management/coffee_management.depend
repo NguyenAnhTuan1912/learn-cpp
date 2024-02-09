@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1707467014 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
+1707487478 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
 	<iostream>
 	<conio.h>
 	<ctime>
@@ -11,6 +11,7 @@
 	"screens/home/HomeScreen.h"
 	"screens/employee/EmployeeScreen.h"
 	"screens/ingredient/IngredientScreen.h"
+	"screens/product/ProductScreen.h"
 	"types/keys.types.h"
 
 1707378028 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\screen\screen.h
@@ -124,10 +125,10 @@
 	"../../utils/enum_utils/enum_utils.h"
 	"../../utils/string_utils/string_utils.h"
 
-1707315494 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\types\types.h
+1707486046 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\types\types.h
 	<functional>
 
-1707469430 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\employee\employeescreen.cpp
+1707483825 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\employee\employeescreen.cpp
 	<conio.h>
 	<string>
 	<exception>
@@ -171,12 +172,15 @@
 	"../datetime/Datetime.h"
 	"../../utils/enum_utils/enum_utils.h"
 
-1707464932 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\product\product.cpp
+1707487402 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\product\product.cpp
+	<iterator>
 	"Product.h"
+	"../../utils/enum_utils/enum_utils.h"
 
-1707464866 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\product\product.h
+1707487758 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\product\product.h
 	<vector>
 	<ctime>
+	"../../utils/string_utils/string_utils.h"
 	"../../enums/enums.h"
 	"../ingredient/Ingredient.h"
 
@@ -188,7 +192,7 @@
 	"../../objects/datetime/Datetime.h"
 	"../../types/keys.types.h"
 
-1707469213 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\ingredient\ingredientscreen.cpp
+1707483807 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\ingredient\ingredientscreen.cpp
 	<conio.h>
 	<string>
 	<exception>
@@ -196,4 +200,21 @@
 	"../../types/types.h"
 	"../../utils/string_utils/string_utils.h"
 	"../../utils/enum_utils/enum_utils.h"
+
+1707487542 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\product\productscreen.cpp
+	<conio.h>
+	<string>
+	<exception>
+	"ProductScreen.h"
+	"../../types/types.h"
+	"../../utils/string_utils/string_utils.h"
+	"../../utils/enum_utils/enum_utils.h"
+
+1707486569 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\product\productscreen.h
+	"../../macros/keys_macros.h"
+	"../../objects/screen/Screen.h"
+	"../../objects/product/Product.h"
+	"../../objects/data_list/DataList.h"
+	"../../objects/datetime/Datetime.h"
+	"../../types/keys.types.h"
 

@@ -1,4 +1,9 @@
+#include <iterator>
+
 #include "Product.h"
+
+// Add utils
+#include "../../utils/enum_utils/enum_utils.h"
 
 namespace CoffeeShop {
 
@@ -16,7 +21,6 @@ Product::Product(
 // Getters
 std::string Product::GetId() { return this->_id_; };
 std::string Product::GetName() { return this->_name_; };
-std::vector<Ingredient>* Product::GetIngredients() { return &this->_ingredients_; };
 unsigned short Product::GetBaseCost() { return this->_base_cost_; };
 
 // Setters
@@ -24,7 +28,16 @@ void Product::SetName(std::string name) { this->_name_ = name; };
 void Product::SetBaseCost(unsigned short bc) { this->_base_cost_ = bc; };
 
 // Other methods
-void Product::AddIngredient(Ingredient& idg) { this->_ingredients_.push_back(idg); };
+void Product::Print() {
+  std::cout
+    << "Name: " << this->_name_ << ";  "
+    << "Cost: " << this->_base_cost_ << "\n";
+};
+void Product::PrintOnlyData() {
+  std::cout
+    << this->_name_ << ";  "
+    << this->_base_cost_ << "\n";
+};
 
 //
 // Drink
@@ -38,15 +51,30 @@ Drink::Drink(
 };
 
 // Getters
-std::vector<DrinkSizesEnum::Core> Drink::GetSizeOfDrink() { return this->_size_of_drink_; };
+DrinkSizesEnum::Core Drink::GetSizeOfDrink() { return this->_size_of_drink_; };
 DrinkTypesEnum::Core Drink::GetTypeOfDrink() { return this->_type_of_drink_; };
 
 // Setters
+void Drink::SetSizeOfDrink(DrinkSizesEnum::Core en) { this->_size_of_drink_ = en; };
 void Drink::SetTypeOfDrink(DrinkTypesEnum::Core en) { this->_type_of_drink_ = en; };
 
 // Other methods
+std::string Drink::GetSizeOfDrinkStr() { return Utils::Enum::GetDrinkSizeEnumStr(this->_size_of_drink_); };
 std::string Drink::GetTypeOfDrinkStr() { return Utils::Enum::GetDrinkTypeEnumStr(this->_type_of_drink_); };
-void Drink::AddSize(DrinkSizesEnum::Core s) { this->_size_of_drink_.push_back(s); };
+void Drink::Print() {
+  std::cout
+    << "Name: " << this->GetName() << ";  "
+    << "Cost: " << this->GetBaseCost() << ";  "
+    << "Size: " << Utils::Enum::GetDrinkSizeEnumStr(this->_size_of_drink_) << ";  "
+    << "Type of drink: " << Utils::Enum::GetDrinkTypeEnumStr(this->_type_of_drink_) << "\n";
+};
+void Drink::PrintOnlyData() {
+  std::cout
+    << this->GetName() << ";  "
+    << this->GetBaseCost() << ";  "
+    << Utils::Enum::GetDrinkSizeEnumStr(this->_size_of_drink_) << ";  "
+    << Utils::Enum::GetDrinkTypeEnumStr(this->_type_of_drink_) << "\n";
+};
 
 //
 // Snack
@@ -67,4 +95,17 @@ void Snack::SetTypeOfSnack(SnackTypesEnum::Core en) { this->_type_of_snack_ = en
 
 // Other methods
 std::string Snack::GetTypeOfSnackStr() { return Utils::Enum::GetSnackTypeEnumStr(this->_type_of_snack_); };
+void Snack::Print() {
+  std::cout
+    << "Name: " << this->GetName() << ";  "
+    << "Cost: " << this->GetBaseCost() << ";  "
+    << "Type of snack: " << Utils::Enum::GetSnackTypeEnumStr(this->_type_of_snack_) << "\n";
+};
+void Snack::PrintOnlyData() {
+  std::cout
+    << this->GetName() << ";  "
+    << this->GetBaseCost() << ";  "
+    << Utils::Enum::GetSnackTypeEnumStr(this->_type_of_snack_) << "\n";
+};
+
 };

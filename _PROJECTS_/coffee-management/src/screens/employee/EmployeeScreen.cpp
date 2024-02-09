@@ -43,6 +43,7 @@ bool EmployeeScreen::IsAgeSuitableForWork(std::string datetime) {
 };
 
 void EmployeeScreen::Render() {
+  std::cout << "Employees: \n";
   if(this->_data_.GetData()->size() == 0)
     std::cout << "Employee List is empty. Please add some employees to start!!!\n";
   else {

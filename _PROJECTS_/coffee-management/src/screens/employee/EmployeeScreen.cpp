@@ -11,6 +11,7 @@
 #include "../../types/types.h"
 
 // Add utils
+#include "../../utils/string_utils/string_utils.h"
 #include "../../utils/enum_utils/enum_utils.h"
 
 // Hidden from Translation Units
@@ -56,10 +57,11 @@ bool EmployeeScreen::PerformAddEmployee() {
 
     std::cout << "~~Add Employee~~" << std::endl;
 
+
     // Get last name
     std::cout << "Enter last name: ";
     // If lastname is empty, fill to text_tmp and set lastname.
-    if(this->_emp_holder_.GetLastName() == "" || this->_emp_holder_.GetLastName().length() == 0) {
+    if(Utils::String::IsStringEmpty(this->_emp_holder_.GetLastName())) {
         std::getline(std::cin, text_tmp);
         this->_emp_holder_.SetLastName(text_tmp);
     }
@@ -68,7 +70,7 @@ bool EmployeeScreen::PerformAddEmployee() {
     // Get first name
     std::cout << "Enter first name: ";
     // If firstname is empty, fill to text_tmp and set firstname.
-    if(this->_emp_holder_.GetFirstName() == "" || this->_emp_holder_.GetFirstName().length() == 0) {
+    if(Utils::String::IsStringEmpty(this->_emp_holder_.GetFirstName())) {
         std::getline(std::cin, text_tmp);
         this->_emp_holder_.SetFirstName(text_tmp);
     }
@@ -141,6 +143,7 @@ bool EmployeeScreen::PerformDeleteEmployee() {
 
     std::cout << "Are you sure? 1. Yes; 2. No\n";
 
+    // Waiting for user to enter key
     while(confirm_key != KEY_1 && confirm_key != KEY_2) {
       confirm_key = getch();
       if(confirm_key == KEY_1) {
@@ -163,9 +166,77 @@ bool EmployeeScreen::PerformDeleteEmployee() {
 
 bool EmployeeScreen::PerformUpdateEmployee() {
   try {
+    if(this->_data_.GetData()->size() == 0) {
+      std::cout << "There aren't employees in list. Press any key to continue!!!\n";
+      getch();
+      this->SetPreviousFeatureKey(0);
+      return true;
+    }
+
+    Types::LimitedKeyCode gender_key, shift_type_key;
+    int num;
+
     std::cout << "~~Update Employee~~" << std::endl;
+    std::cout << "If has any field don't need to change, please press [Enter] (or depend on guide) to skip.\n";
+    std::cout << "Enter the employee's number that you want to UPDATE: ";
+    std::cin >> num;
+
+    Employee* ptr_emp = this->_data_.GetItem(num - 1);
+    std::string text_tmp = "";
+
+    std::cout << "Old data: \n"; ptr_emp->PrintOnlyData(); std::cout << std::endl;
+
+    // Change data flow below
+    // Update last name
+    std::cout << "Update last name: ";
+    std::cin.ignore();
+    std::getline(std::cin, text_tmp);
+    if(!Utils::String::IsStringEmpty(text_tmp)) {
+      ptr_emp->SetLastName(text_tmp);
+    };
+
+    // Update first name
+    std::cout << "Update first name: ";
+    std::getline(std::cin, text_tmp);
+    if(!Utils::String::IsStringEmpty(text_tmp)) {
+      ptr_emp->SetFirstName(text_tmp);
+    };
+
+    // Update birthdate
+    std::cout << "Update birthdate: ";
+    std::getline(std::cin, text_tmp);
+    if(!Utils::String::IsStringEmpty(text_tmp)) {
+      ptr_emp->SetBirthDate(text_tmp);
+    };
+
+    // Get salary/hour
+    std::cout << "Update salary/hour: ";
+    std::getline(std::cin, text_tmp);
+    if(!Utils::String::IsStringEmpty(text_tmp)) {
+      ptr_emp->SetSalaryPerHour(std::stoi(text_tmp));
+    };
+
+    // Get gender
+    std::cout << "Update gender: ";
+    std::cout << "1. Male; 2. Female; [any] to skip \n";
+    gender_key = getch();
+    if(gender_key == KEY_1) ptr_emp->SetGender(true);
+    if(gender_key == KEY_2) ptr_emp->SetGender(false);
+
+    // Get shift type
+    std::cout << "Update shift type (Press [any] except [Enter] to modify):\n";
+    shift_type_key = getch();
+    if(!Utils::String::IsStringEmpty(std::string(1, shift_type_key))) {
+      ptr_emp->SetShiftType(Utils::Enum::GetShiftEnum());
+    };
+
+    std::cout << "Update done! Press any key to continue.\n";
+    getch();
+
+    this->SetPreviousFeatureKey(0);
+
     return true;
-  } catch() {
+  } catch(const std::exception& e) {
     std::cerr << "Error: " << e.what() << std::endl;
     // Reset if doesn't continue.
     this->DeciseToContinue();

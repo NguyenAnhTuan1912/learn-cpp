@@ -1,6 +1,7 @@
 #ifndef KEYS_H_INCLUDED
 #define KEYS_H_INCLUDED
 
+#define KEY_ENTER 10
 #define KEY_ESC 27
 #define KEY_SPACE 32
 // Key: !

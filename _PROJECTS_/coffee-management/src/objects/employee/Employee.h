@@ -68,6 +68,13 @@ public:
    */
 
   virtual void Print() final;
+
+  /** \brief Use to print only data, seperate by ";"
+   *
+   * \return
+   *
+   */
+  virtual void PrintOnlyData() final;
 };
 
 };

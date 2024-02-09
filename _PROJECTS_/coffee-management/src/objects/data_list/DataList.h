@@ -17,6 +17,31 @@ private:
   int _numof_items_per_page_;
   size_t _current_index_ = 0;
 
+  /** \brief Use this method to get item at N
+   *
+   * \param N A "index" of item of map
+   * \return An iterator of map
+   *
+   * When this method is executed, a iterator of map will be iterate
+   * N time to get exact item.
+   */
+
+  typename std::map<K, V>::iterator _GetIteratorOfMapAt_(int N) {
+    if(N < 0 || N > (int)this->_data_.size() - 1)
+      throw std::runtime_error("Index of item is out of range!!!");
+
+    typename std::map<K, V>::iterator it = this->_data_.begin();
+    int index = 0;
+
+    if(N != 0)
+      while(index < N) {
+        it++;
+        index++;
+      };
+
+    return it;
+  };
+
 public:
   DataList() = default;
   DataList(int numof_ipp): _numof_items_per_page_{numof_ipp}, _current_index_{0} {};
@@ -33,20 +58,26 @@ public:
 
   // Other methods
   virtual bool DeleteItem(int N) final {
-    if(N < 0 || N > (int)this->_data_.size() - 1)
+    typename std::map<K, V>::iterator it = this->_GetIteratorOfMapAt_(N);
+
+    this->_data_.erase(it);
+
+    return true;
+  };
+
+  virtual V* GetItem(int N) final {
+    if(N < 0 || N > (int)this->_data_.size())
       throw std::runtime_error("Index of deleting item is out of range!!!");
 
     typename std::map<K, V>::iterator it = this->_data_.begin();
-    int index;
+    int index = 0;
 
     while(index < N) {
       it++;
       index++;
     };
 
-    this->_data_.erase(it);
-
-    return true;
+    return &it->second;
   };
 
   virtual void Next() final {
@@ -66,18 +97,8 @@ public:
   };
 
   virtual void Print(Types::DataListPrintCallBack<V>& Cb) final {
-    typename std::map<K, V>::iterator it = this->_data_.begin();
-    size_t index = 0;
-
-    std::cout << "Check: " << this->_current_index_ << std::endl;
-
-    while(index < this->_current_index_) {
-      it++;
-      index++;
-    };
-
-    std::cout << it->first << std::endl;
-
+    typename std::map<K, V>::iterator it = this->_GetIteratorOfMapAt_(this->_current_index_);
+    int index = 0;
     for(; it != this->_data_.end(); it++) Cb(it->second, ++index);
   };
 };

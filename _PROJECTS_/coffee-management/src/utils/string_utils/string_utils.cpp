@@ -41,6 +41,21 @@ std::vector<std::string> Split(std::string str, std::string seperator) {
   return result;
 };
 
+bool IsStringEmpty(std::string str) {
+  if(str.length() == 0) return true;
+  int i = 0;
+  while(str[i] != '\0') {
+    if(str[i] != ' ' && str[i] != '\n' && str[i] != '\t' && str[i] != '\r') return false;
+    i++;
+  };
+  return true;
+};
+
+bool IsStringEmpty(int c) {
+  if(c != ' ' && c != '\n' && c != '\t' && c != '\r') return false;
+  return true;
+};
+
 };
 };
 };

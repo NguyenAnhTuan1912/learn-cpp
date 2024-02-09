@@ -60,7 +60,16 @@ void Employee::Print() {
   std::cout << "Birthday: " << this->GetBirthDateStr() << ";  ";
   std::cout << "Age: " << this->GetAge() << ";  ";
   std::cout << "Shift: " << this->GetShiftTypeStr() << ";  ";
-  std::cout << "Salary/Hour: " << this->_salary_per_hour_ << ";  ";
+  std::cout << "Salary/Hour: " << this->_salary_per_hour_ << "\n";
+};
+
+void Employee::PrintOnlyData() {
+  std::cout << this->GetFullName() << ";  ";
+  std::cout << this->GetGenderStr() << ";  ";
+  std::cout << this->GetBirthDateStr() << ";  ";
+  std::cout << this->GetAge() << ";  ";
+  std::cout << this->GetShiftTypeStr() << ";  ";
+  std::cout << this->_salary_per_hour_ << "\n";
 };
 
 };

@@ -36,6 +36,16 @@ std::string GenerateRandom(std::string prefix, int length = 12);
  * This function will take 2 strings (str and seperator) and use seperator to cut the string.
  */
 std::vector<std::string> Split(std::string str, std::string seperator = "/");
+
+/** \brief Use to check if a string is empty or not
+ *
+ * \param str A string that want to check
+ * \return
+ *
+ */
+
+bool IsStringEmpty(std::string str);
+bool IsStringEmpty(int c);
 };
 };
 };

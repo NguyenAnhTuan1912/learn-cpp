@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1707380015 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
+1707443646 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\main.cpp
 	<iostream>
 	<conio.h>
 	<ctime>
@@ -20,12 +20,12 @@
 	"../../types/screen.types.h"
 	"../../types/keys.types.h"
 
-1707296285 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\string_utils\string_utils.cpp
+1707448221 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\string_utils\string_utils.cpp
 	<algorithm>
 	"string_utils.h"
 	"../number_utils/number_utils.h"
 
-1707296270 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\string_utils\string_utils.h
+1707448087 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\utils\string_utils\string_utils.h
 	<iostream>
 	<vector>
 
@@ -109,13 +109,13 @@
 	"../../objects/datetime/Datetime.h"
 	"../../types/keys.types.h"
 
-1707389332 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\data_list\datalist.h
+1707446436 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\data_list\datalist.h
 	<map>
 	<exception>
 	<iterator>
 	"../../types/types.h"
 
-1707365366 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\employee\employee.h
+1707439979 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\employee\employee.h
 	<iostream>
 	<ctime>
 	"../../enums/enums.h"
@@ -126,12 +126,13 @@
 1707315494 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\types\types.h
 	<functional>
 
-1707389383 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\employee\employeescreen.cpp
+1707448072 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\screens\employee\employeescreen.cpp
 	<conio.h>
 	<string>
 	<exception>
 	"EmployeeScreen.h"
 	"../../types/types.h"
+	"../../utils/string_utils/string_utils.h"
 	"../../utils/enum_utils/enum_utils.h"
 
 1707356086 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\data_list\datalist.cpp
@@ -147,14 +148,14 @@
 	<regex>
 	"../../macros/date_format.h"
 
-1707364551 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\employee\employee.cpp
+1707442457 source:d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\objects\employee\employee.cpp
 	"Employee.h"
 
 1707376497 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\macros\employee.macros.h
 
 1707379359 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\macros\date_format_macros.h
 
-1707142459 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\macros\keys_macros.h
+1707446291 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\macros\keys_macros.h
 
 1707380516 d:\hoctap\(7) cpp\learn-cpp\_projects_\coffee-management\src\macros\employee_macros.h
 

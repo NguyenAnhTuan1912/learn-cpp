@@ -48,6 +48,8 @@ void EmployeeScreen::Render() {
     std::cout << "Employee List is empty. Please add some employees to start!!!\n";
   else {
     this->_data_.Print(::PrintData);
+    std::cout << "Page: " << this->_data_.GetCurrentPage() << " | ";
+    std::cout << "q. Previous; p. Next\n";
   };
 };
 
@@ -79,7 +81,7 @@ bool EmployeeScreen::PerformAddEmployee() {
 
     // Get birthday
     std::cout << "Enter birthday: ";
-    if(!(::IsBirthDateValid(*(this->_emp_holder_.GetBirthDate())))) {
+    if(!(::IsBirthDateValid(*(this->_emp_holder_.GetBirthDate()))) || this->_emp_holder_.GetBirthDate()->IsNull()) {
       std::getline(std::cin, text_tmp);
 
       // Is birthdate of this person is match with requirement?
@@ -257,6 +259,18 @@ bool EmployeeScreen::SelectFeature(Types::LimitedKeyCode key) {
 
     case KEY_3: {
       return this->PerformUpdateEmployee();
+    };
+
+    case KEY_q: {
+      this->_data_.Previous();
+      this->SetPreviousFeatureKey(0);
+      return true;
+    };
+
+    case KEY_p: {
+      this->_data_.Next();
+      this->SetPreviousFeatureKey(0);
+      return true;
     };
 
     default: {
